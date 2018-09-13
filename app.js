@@ -143,6 +143,10 @@
 				templateUrl: 'partials/hashtag.html',
 				controller: 'HashtagController'
 			}).
+			when('/channels?/:identifier', {
+				templateUrl: 'partials/channel.html',
+				controller: 'ChannelController'
+			}).
 			when('/charts?/:identifier', {
 				templateUrl: 'partials/chart.html',
 				controller: 'ChartController'
@@ -163,6 +167,9 @@
 				if (redirectToLogin) {
 					$scope.$emit('login');
 					$location.replace();
+				}
+				if (localStorage.getItem('parse.session.' + userInfo.id) != null) {
+					Parse.User.become(localStorage.getItem('parse.session.' + userInfo.id))
 				}
 			}, function(err) {
 				$scope.showplayer = false;
@@ -189,7 +196,45 @@
 		$scope.$on('login', function() {
 			$scope.showplayer = true;
 			$scope.showlogin = false;
-			$location.path('/').replace().reload();
+			if (localStorage.getItem('me.session.id') != null) {
+
+				$location.path('/').replace().reload();
+			} else {
+
+				$user = API.getMe().then(function (user) {
+
+					var myquery = new Parse.Query(Parse.User);
+					myquery.equalTo("username", user.id);
+					myquery.find({
+						success: function(results) {
+							if(results.length === 0) {
+							    var user = new Parse.User();
+								user.save({
+								  username: me.id,
+								  email: me.email,
+								  password: me.id
+								}, {
+								  success: function(response) {
+								    console.log('New object create with success! ObjectId: ' + response.id + `, ` + user.get('username'));
+									Parse.User.logIn(me.id, me.id).then(function (user) {
+								    	localStorage.setItem('parse.session.' + me.id, Parse.session.current().get('sessionToken'))
+										$location.path('/').replace().reload();
+								    })
+								  },
+								  error: function(response, error) {
+								    alert('Error: ' + error.message);
+								  }
+								});
+							} else {
+							    Parse.User.logIn(me.id, me.id).then(function (user) {
+							    	localStorage.setItem('parse.session.' + me.id, Parse.session.current().get('sessionToken'))
+									$location.path('/').replace().reload();
+							    })
+							}
+						}
+					});
+				})
+			}
 		});
 
 		$scope.$on('logout', function() {

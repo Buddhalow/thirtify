@@ -1,0 +1,17 @@
+<generic-header ng-model="data"></generic-header>
+<div class="container" ng-show="type">
+	<div class="row">	
+		<div class="row" ng-show="channels.length > 0" class="col-md-6">
+			<ul class="playlists">
+				<li class="searchresult" ng-repeat="p in channels">
+					<a href="/{{type}}s/{{p.id}}">
+						<responsive-cover ng-model="p.images" class="responsive-cover-playlist"></responsive-cover>
+					</a>
+					<p>
+						<a href="/{{type}}s/{{p.id}}">{{p.name}}</a>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

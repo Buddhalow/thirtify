@@ -1,0 +1,70 @@
+<generic-header ng-model="data" followable="true" playable="true">
+</generic-header>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<input class="form-control" placeholder="Filter" type="search" style="width: 100%" ng-model="q">
+		</div>
+	</div>
+</div>
+<div class="container">
+<table class="tracks">
+	<thead>
+		<th></th>
+		<th>{{ 'track' | locale }}</th>
+		<th>{{ 'creator' | locale }}</th>
+		<th>{{ 'show' | locale }}</th>
+		<th>{{ 'added' | locale }}</th>
+		<th>{{ 'time' | locale }}</th>
+		<th ng-if="data.collaborative">{{ 'user' | locale }}</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="t in objects | filter: q" ng-dblclick="play(t.object.uri)" ng-class="{ playing: (t.object.uri == currenttrack) }" ng-context-menu="menuOptionsPlaylistTrack(t, $index)">
+			<td>
+				<img ng-if="t.object.images" src="{{t.object.images[0].url}}" height="24">
+				<img ng-if="t.object.album.images" src="{{t.object.album.images[0].url}}" height="24">
+				{{console.log(t)}}
+			</td>
+			<td>
+				<a href="/{{t.object.type}}/{{t.object.id}}">{{t.object.name}}</a>
+				<p style="opacity: 0.8; display: none">{{t.object.description.substr(0, 280)}}</p>
+			</td>
+			<td>
+				<a ng-repeat="a in t.object.authors" href="/{{a.type}}/{{a.id}}">{{a.name}}</a>
+				<a ng-repeat="a in t.object.artists" href="/{{a.type}}/{{a.id}}">{{a.name}}</a>
+				<a ng-if="t.object.show.publisher" href="/publisher/{{a}}">{{a}}</a>
+			</td>
+			<td>
+				<a ng-if="t.object.show" href="/show/{{t.show.id}}">{{t.object.name}}</a>
+				<a ng-if="t.object.album" href="/album/{{t.show.id}}">{{t.object.name}}</a>
+			</td>
+			<td  class="nowrap">
+				{{t.time | timeago}}
+			</td>
+			<td  class="nowrap" ng-if="data.collaborative">
+				<a href="/users/{{t.added_by.id}}">{{t.added_by.id}}</a>
+			</td>
+			<td class="nowrap" style="text-align: right">
+				{{ t.object.duration_ms | displaytime }}
+			</td>
+		</tr>
+	</tbody>
+</table>
+<br/>
+
+<hr/>
+</div>
+
+<!--
+
+<hr/>
+
+<h2>Missing functionality</h2>
+
+<p>Mosaic</p>
+
+<p><a href="#">PLAY FIRSTT THING</a></p>
+
+<p><a href="#">FOLLOW/FOLLOWING</a></p>
+
+-->
