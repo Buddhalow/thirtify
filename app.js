@@ -3,7 +3,7 @@
 	var app = angular.module('PlayerApp', ['ngRoute']);
 
 	app.factory('I18n', ['$q', '$http', function($q, $http) {
-		let locale = navigator.language
+		let locale = navigator.language.split('-')[0]
 
 		var lang = {}
 		try {
@@ -156,7 +156,7 @@
 			});
 	});
 
-	app.controller('AppController', function($scope, Auth, API, $location) {
+	app.controller('AppController', function($scope, Auth, API, $location, I18n) {
 		console.log('in AppController');
 
 		console.log(location);
@@ -193,6 +193,44 @@
 		$scope.showplayer = $scope.isLoggedIn;
 		$scope.showlogin = !$scope.isLoggedIn;
 
+		$scope.resourceContextMenu = function (resource) {
+			var menuItems = []
+
+			menuItems.push([
+				I18n.t('play'),
+				function ($itemScope) {
+
+				}
+			])
+			menuItems.push([
+				I18n.t('copy-uri'),
+				function ($itemScope) {
+
+				}
+			])
+
+			menuItems.push([
+				I18n.t('copy-link'),
+				function ($itemScope) {
+
+				}
+			])
+
+			menuItems.push([
+				I18n.t('share'),
+				function ($itemScope) {
+
+				}
+			])
+
+			menuItems.push([
+				I18n.t('play'),
+				function ($itemScope) {
+
+				}
+			])
+			return menuItems
+		}
 		$scope.$on('login', function() {
 			$scope.showplayer = true;
 			$scope.showlogin = false;
@@ -250,12 +288,12 @@
 			}
 		};
 
-		
+
 
 		$scope.focusInput = false;
 		$scope.menuOptions = function(playlist) {
 
-			var visibilityEntry = [playlist.public ? 'Make secret' : 'Make public', function ($itemScope) {
+			var visibilityEntry = [playlist.public ? I18n.t('make-secret') : I18n.t('make-public'), function ($itemScope) {
 				API.changePlaylistDetails(playlist.username, playlist.id, {public: !playlist.public})
 					.then(function() {
 						playlist.public = !playlist.public;

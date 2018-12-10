@@ -17,7 +17,6 @@
 				return;
 			}
 			_progress = audiotag.currentTime * 1000.0;
-
 			$rootScope.$emit('trackprogress');
 			/*
 			if (_progress >= 4000) {

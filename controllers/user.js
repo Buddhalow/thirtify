@@ -12,6 +12,7 @@
 		API.getUser($scope.profileUsername).then(function(user) {
 			console.log('got user', user);
 			$scope.data = user;
+			user.name =user.id;
 			$scope.data.name = user.username
 		});
 

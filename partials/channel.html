@@ -11,6 +11,7 @@
 <table class="tracks">
 	<thead>
 		<th></th>
+		<th></th>
 		<th>{{ 'track' | locale }}</th>
 		<th>{{ 'creator' | locale }}</th>
 		<th>{{ 'show' | locale }}</th>
@@ -19,32 +20,38 @@
 		<th ng-if="data.collaborative">{{ 'user' | locale }}</th>
 	</thead>
 	<tbody>
-		<tr ng-repeat="t in objects | filter: q" ng-dblclick="play(t.object.uri)" ng-class="{ playing: (t.object.uri == currenttrack) }" ng-context-menu="menuOptionsPlaylistTrack(t, $index)">
+		<tr ng-repeat="t in objects | filter: q"  ng-class="{ playing: (t.object.uri == currenttrack) }" ng-context-menu="menuOptionsPlaylistTrack(t, $index)">
 			<td>
+				<i ng-if="t.object.artists" class="fa fa-music"></i>
+				<i ng-if="t.object.type === 'episode'" class="fa fa-podcast"></i>
+				<i ng-if="t.object.type === 'artist'" class="fa fa-user"></i>
+			</td>
+			<td ng-dblclick="play(t.object.uri)">
+				
 				<img ng-if="t.object.images" src="{{t.object.images[0].url}}" height="24">
 				<img ng-if="t.object.album.images" src="{{t.object.album.images[0].url}}" height="24">
 				{{console.log(t)}}
 			</td>
-			<td>
+			<td ng-dblclick="play(t.object.uri)">
 				<a href="/{{t.object.type}}/{{t.object.id}}">{{t.object.name}}</a>
 				<p style="opacity: 0.8; display: none">{{t.object.description.substr(0, 280)}}</p>
 			</td>
-			<td>
+			<td ng-dblclick="play(t.object.uri)">
 				<a ng-repeat="a in t.object.authors" href="/{{a.type}}/{{a.id}}">{{a.name}}</a>
 				<a ng-repeat="a in t.object.artists" href="/{{a.type}}/{{a.id}}">{{a.name}}</a>
 				<a ng-if="t.object.show.publisher" href="/publisher/{{a}}">{{a}}</a>
 			</td>
-			<td>
-				<a ng-if="t.object.show" href="/show/{{t.show.id}}">{{t.object.name}}</a>
-				<a ng-if="t.object.album" href="/album/{{t.show.id}}">{{t.object.name}}</a>
+			<td ng-dblclick="play(t.object.uri)">
+				<a ng-if="t.object.show" href="/show/{{t.object.show.id}}">{{t.object.show.name}}</a>
+				<a ng-if="t.object.album" href="/album/{{t.object.album.id}}">{{t.object.name}}</a>
 			</td>
-			<td  class="nowrap">
+			<td ng-dblclick="play(t.object.uri)" class="nowrap">
 				{{t.time | timeago}}
 			</td>
-			<td  class="nowrap" ng-if="data.collaborative">
+			<td ng-dblclick="play(t.object.uri)" class="nowrap" ng-if="data.collaborative">
 				<a href="/users/{{t.added_by.id}}">{{t.added_by.id}}</a>
 			</td>
-			<td class="nowrap" style="text-align: right">
+			<td ng-dblclick="play(t.object.uri)" class="nowrap" style="text-align: right">
 				{{ t.object.duration_ms | displaytime }}
 			</td>
 		</tr>

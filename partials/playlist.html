@@ -22,7 +22,6 @@
 	<tbody>
 		<tr ng-repeat="t in tracks | filter: q" ng-dblclick="play(t.track.uri)" ng-class="{ playing: (t.track.uri == currenttrack) }" ng-context-menu="menuOptionsPlaylistTrack(t, $index)">
 			<td>
-				<img width="32" src="{{t.track.album.images[0].url}}">
 			</td>
 			<td>
 				<button ng-click="toggleFromYourMusic($index)"> {{ t.track.inYourMusic ? '-' : '+' }} </button>

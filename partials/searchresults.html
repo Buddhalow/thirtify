@@ -1,6 +1,6 @@
 <generic-header ng-model="data"></generic-header>
 <div class="container" ng-show="type">
-	<div class="row" >	
+	<div class="row" >
 		<div class="row" ng-show="objects.length > 0" class="col-md-6">
 			<ul class="playlists">
 				<li class="searchresult" ng-repeat="p in objects">
@@ -25,7 +25,7 @@
 						<responsive-cover ng-model="p.images" class="responsive-cover-playlist"></responsive-cover>
 					</a>
 					<p>
-						<a href="/users/{{p.owner.id}}/playlists/{{p.id}}">{{p.name}}</a>
+						<a href="/playlists/{{p.id}}">{{p.name}}</a>
 					</p>
 				</li>
 			</ul>
@@ -34,7 +34,7 @@
 			<h4><a href="/search?q={{query}}&type=artist">ARTISTS</a></h4>
 			 <ul class="playlists" ng-show="artists.length > 0">
 			 	<li class="searchresult" ng-repeat="p in artists.slice(0, 5)">
-			    <a href="/artistts/{{p.id}}">
+			    <a href="/artists/{{p.id}}">
 			      <responsive-cover ng-model="p.images" class="responsive-cover-playlist"></responsive-cover>
 			    </a>
 			    <p>

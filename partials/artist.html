@@ -15,7 +15,7 @@
 					<th>#</th>
 					<th></th>
 					<th>{{ 'songs' | locale }}</th>
-					<th>{{ 'time' | locale }}</th>
+					<th></th>
 				</thead>
 				<tbody>
 
@@ -26,7 +26,7 @@
 							<button ng-click="toggleFromYourMusic($index)" style="opacity: 0.5"> {{ t.inYourMusic ? '-' : '+' }} </button>
 						</td>
 						<td><a ng-click="playtoptrack(t.uri)">{{t.name}}</a></td>
-						<td style="opacity: 0.5">{{t.duration_ms | displaytime}}</td>
+						<td style="text-align: right">??? ???</td>
 					</tr>
 				</tbody>
 			</table>
@@ -95,6 +95,22 @@
 				</a>
 				<p>
 					<b><a href="/albums/{{t.id}}">{{t.name}}</a></p>
+				</p>
+			</li>
+		</ul>
+		<hr/>
+		<br/>
+	</div>
+
+	<div ng-show="shows.length > 0">
+		<h3>{{ 'shows' | locale }}</h3>
+		<ul class="albums">
+			<li ng-repeat="t in shows">
+				<a href="/show/{{t.id}}">
+					<responsive-cover ng-model="t.images"></responsive-cover>
+				</a>
+				<p>
+					<b><a href="/shows/{{t.id}}">{{t.name}}</a></p>
 				</p>
 			</li>
 		</ul>

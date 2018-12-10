@@ -1,6 +1,6 @@
 <div class="container">
 	<header style="margin-bottom: 12pt; width: 100%;  display: flex; flex-direction: row">
-		<div ng-show="data.images && data.images.length > 0" style="flex: 0 0 210px; padding-top: 20pt; padding-right: 20pt">
+		<div ng-show="data.images && data.images.length > 0 && data.type != 'author'" style="flex: 0 0 210px; padding-top: 20pt; padding-right: 20pt">
 			<playlist-cover ng-model="data" width="200"></playlist-cover>
 		</div>
 		<div style="display: flex; flex: 1; flex-direction: column; align-items: stretch; justify-content: flex-end;  height: 100%">
@@ -20,16 +20,16 @@
 				<div ng-if="isFollowable" class="follower-count" style="float: right">{{data.followers.total | number}} {{'followers' | locale}}</div>
 
 			</div>
-			
-		</div>	
+
+		</div>
 	</header>
 
 	<div ng-if="data.tracks" style="padding-left: 22pt">
-		
+
 		<span ng-if="data.type === 'album'">
 		{{release_year}}
 		&middot;
-		
+
 		</span>
 		<span >
 		</span>

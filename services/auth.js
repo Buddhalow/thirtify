@@ -7,11 +7,9 @@
 		var CLIENT_ID = '';
 		var REDIRECT_URI = '';
 
-		if (location.host == 'localhost:8000') {
 			CLIENT_ID =	'9cae232f0ddd4ba3b55b7e54ca6e76f0';
-			REDIRECT_URI = 'http://localhost:8000/callback.html';
-		} else {
-		}
+			REDIRECT_URI = 'http://localhost:2858/callback.html';
+		
 
 		function getLoginURL(scopes) {
 			return 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID

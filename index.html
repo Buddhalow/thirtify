@@ -5,6 +5,9 @@
 		<link rel="stylesheet" href="style.css" />
 		<link rel="stylesheet" href="grid12.css" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
 		<script src="https://sdk.scdn.co/spotify-player.js"></script>
 		<script src="bower_components/jquery/jquery.js"></script>
 		<script src="bower_components/angular/angular.js"></script>
@@ -63,21 +66,23 @@
 		<div class="fullview playerview" ng-show="showplayer">
 			<div ng-controller="PlayerController">
 				<div class="topgroup">
-					<div class="buttons">
-						<button style="padding: 8pt" onclick="history.back()">&lt;</button>
-						<button style="padding: 8pt" href="#" onclick="history.forward()">&gt;</button>
-					</div>
-					<div class="searchbox" style="left: 60pt">
-						<form novalidate ng-submit="loadsearch()">
-							<input type="text" ng-model="query" placeholder="Search..." />
-						</form>
-					</div>
-					<div class="titlebox">
-						<a href="/home">THIRTIFY</a>
-					</div>
-					<div class="userbox">
-						Signed in as <b><a href="#/users/{{profileUsername}}">{{profileUsername}}</a></b>
-						<a ng-click="logout()">Log out</a>
+					<div class="controller container">
+						<div class="buttons">
+							<button style="padding: 8pt" onclick="history.back()">&lt;</button>
+							<button style="padding: 8pt" href="#" onclick="history.forward()">&gt;</button>
+						</div>
+						<div class="searchbox">
+							<form novalidate ng-submit="loadsearch()">
+								<input type="text" ng-model="query" placeholder="Search..." />
+							</form>
+						</div>
+						<div class="titlebox" style="flex: 1">
+							<a href="/home">THIRTIFY</a>
+						</div>
+						<div class="userbox">
+							Signed in as <b><a href="#/users/{{profileUsername}}">{{profileUsername}}</a></b>
+							<a ng-click="logout()">Log out</a>
+						</div>
 					</div>
 				</div>
 				<div class="midgroup">

@@ -1,0 +1,23 @@
+{
+  "name": "thirtify",
+  "version": "1.0.0",
+  "description": "Spotify Web API Player Example ==================",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Buddhalow/thirtify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Buddhalow/thirtify/issues"
+  },
+  "homepage": "https://github.com/Buddhalow/thirtify#readme",
+  "dependencies": {
+    "electron": "^3.0.10",
+    "express": "^4.16.4"
+  }
+}

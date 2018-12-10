@@ -2,12 +2,12 @@
 
 	var module = angular.module('PlayerApp');
 
-	module.controller('ChannelController', function($scope, $rootScope, Thirtify, API, PlayQueue, $routeParams, Auth, $sce) {
+	module.controller('ChannelController', function($scope, I18n, $rootScope, Thirtify, API, PlayQueue, $routeParams, Auth, $sce) {
 		$scope.identifier = $routeParams.identifier
 		Thirtify.getChannelByIdentifier($scope.identifier).then(function (channel) {
 			$scope.data = channel
-			Thirtify.getObjectsInChannel($scope.identifier).then(function (objects) {
-				$scope.objects = objects.objects.map(function (obj) {
+			Thirtify.getObjectsInChannel($scope.identifier).then(function (result) {
+				$scope.objects = result.objects.map(function (obj) {
 					if (obj.show) {
 						obj.authors = [obj.show]
 					}
@@ -16,8 +16,6 @@
 					$rootScope.$emit('playlistsubscriptionchange');
 			})
 		})
-
-
 
 		$scope.follow = function(isFollowing) {
 			if (isFollowing) {
@@ -34,14 +32,14 @@
 				});
 			}
 		};
-
 		$scope.play = function(trackuri) {
-			var trackuris = $scope.tracks.map(function(track) {
-				return track.track.uri;
+			var trackuris = $scope.objects.map(function(object) {
+				return object.object.uri;
 			});
 			PlayQueue.clear();
 			PlayQueue.enqueueList(trackuris);
 			PlayQueue.playFrom(trackuris.indexOf(trackuri));
+			debugger
 		};
 
 		$scope.playall = function() {
@@ -66,26 +64,38 @@
 		};
 
 		$scope.menuOptionsPlaylistTrack = function() {
+			var menuItems = [
+				[
+					I18n.t('play'),
+					function ($itemScope) {
+
+					}
+				],
+				[
+					I18n.t('copy'),
+					function ($itemScope) {
+
+					}
+				]
+
+			]
 			if ($scope.username === Auth.getUsername()) {
-				return [[
+				menuItems.push([
 					'Delete',
 					function ($itemScope) {
 						var position = $itemScope.$index;
-						let promise = $scope.username ? API.removeTrackFromPlaylist(
-							$scope.username,
-							$scope.playlist,
-							$itemScope.t.track, position) :
-							API.removeTrackFromPlaylistById(
-								$scope.playlist,
-								$itemScope.t.track, position)
+						let promise = 	API.removeObjectFromChannel(
+							$scope.identifier,
+							$itemScope.t.track, 
+							position
+						)
 
 						promise.then(function() {
 							$scope.tracks.splice(position, 1);
 						});
-					}]]
-			} else {
-				return null;
+					}])
 			}
+			return menuItems
 		};
 
 	});
