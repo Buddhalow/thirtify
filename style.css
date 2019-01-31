@@ -157,7 +157,9 @@ hr {
 	padding: 7px;
 }
 tab-bar {
-	display: block;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 	margin-bottom: 25pt;
 }
 tabbar-tab {
@@ -178,6 +180,22 @@ tabbar-tab {
 	top: 0px;
 	padding: 12px;
 	text-align: right;
+}
+.sticky-header {
+	background: black;
+}
+.sticky-tabbar {
+	background: black;
+	border-bottom: 3pt solid white;
+}
+
+sp-flow {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+item {
+	padding: 10pt;
 }
 h3, summary {
 	font-weight: bold;
@@ -359,7 +377,6 @@ h1 {
 	font-weight: bold;
 }
 generic-header {
-	padding-top: 80pt !important;
 	display: block;
 }
 .mainview {

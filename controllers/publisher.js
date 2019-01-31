@@ -17,7 +17,6 @@
 			if ($scope.shows.length > 0) {
 				//$scope.data.images = $scope.shows[0].images
 			}
-			$scope.digest()
 		});
 
 		$scope.play = function(trackuri) {

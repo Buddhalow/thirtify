@@ -7,6 +7,7 @@
 			restrict: 'E',
 			scope: {
 				data: '=ngModel',
+                scrollY: '=scrollY',
 				isFollowable: '=followable',
 				isPlayable: '=playable',
 				isWide: '=wide'
