@@ -17,6 +17,7 @@
 			$scope.currenttrack = PlayQueue.getCurrent();
 		});
 
+		$scope.release = null;
 
 		API.getArtist($scope.artist).then(function(artist) {
 			console.log('got artist', artist);
@@ -37,7 +38,7 @@
 				        	let hex = swatches[swatch].getHex()
 				            console.log(swatch, hex)
 				            document.documentElement.style.setProperty('--vibrant-color', hex + '88')
-				         	break;   
+				         	break;
 				        }
 				    }
 			        i++
@@ -65,25 +66,48 @@
 				return obj.publisher.indexOf($scope.artist.name) !== -1
 			})
 		})
-
+		API.getRelatedArtists($scope.artist, Auth.getUserCountry()).then(function(result) {
+            $scope.artists = result.artists.slice(0, 8);
+        });
 		API.getArtistAlbums($scope.artist, Auth.getUserCountry()).then(function(albums) {
-			console.log('got artist albums', albums);
-			$scope.albums = [];
-			$scope.singles = [];
-			$scope.appearson = [];
-			albums.items.forEach(function(album) {
-				console.log(album);
-				if (album.album_type == 'album') {
-					$scope.albums.push(album);
+            console.log('got artist albums', albums);
+            $scope.albums = [];
+            $scope.singles = [];
+            $scope.appearson = [];
+
+            albums.items.forEach(function(album) {
+                console.log(album);
+                if (album.album_type == 'album') {
+                    $scope.albums.push(album);
+                }
+                if (album.album_type == 'single') {
+                    $scope.singles.push(album);
+                }
+                if (album.album_type == 'appears-on') {
+                    $scope.appearson.push(album);
+                }
+            })
+            let lastAlbum = $scope.albums[0];
+            let lastSingle = $scope.singles[0];
+			if (lastAlbum instanceof Object) {
+				if (lastSingle instanceof Object && new Date(lastSingle.release_date).getTime() < new Date(lastSingle.release_date).getTime()) {
+					$scope.release = lastSingle
+				} else {
+
+					$scope.release = lastAlbum
 				}
-				if (album.album_type == 'single') {
-					$scope.singles.push(album);
-				}
-				if (album.album_type == 'appears-on') {
-					$scope.appearson.push(album);
-				}
-			})
-		});
+			}
+            if (lastSingle instanceof Object) {
+                if (lastAlbum instanceof Object && new Date(lastAlbum.release_date).getTime() < new Date(lastAlbum.release_date).getTime()) {
+                    $scope.release = lastAlbum
+                } else {
+
+                    $scope.release = lastSingle
+                }
+            }
+        });
+
+
 
 		API.isFollowing($scope.artist, "artist").then(function(booleans) {
 			console.log("Got following status for artist: " + booleans[0]);

@@ -1,17 +1,14 @@
 <generic-header ng-model="data" wide="true"></generic-header>
 <div class="container">
-  <h2>{{ 'shows' | locale}}</h2>
-  <ul class="playlists shows" ng-show="shows.length > 0">
-    <li class="searchresult" ng-repeat="p in shows">
+  <h2 style="text-align: center">{{ 'shows' | locale}}</h2>
+  <sp-flow class="playlists shows" ng-show="shows.length > 0">
+    <div class="searchresult" ng-repeat="p in shows">
       <a href="/show/{{p.id}}">
         <responsive-cover ng-model="p.images" class="responsive-cover-playlist"></responsiveplaylist-cover>
       </a>
-      <p>
-        <a href="/show/{{p.id}}">{{p.name}}</a>
-      </p>
-    </li>
+    </div>
     <hr/>
-  </ul>
+  </sp-flow>
 
   <br/>
 </div>

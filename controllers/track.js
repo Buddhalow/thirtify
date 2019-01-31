@@ -49,8 +49,8 @@
 			        	if (swatches.hasOwnProperty(swatch) && swatches[swatch]) {
 				        	let hex = swatches[swatch].getHex()
 				            console.log(swatch, hex)
-				            document.documentElement.style.setProperty('--vibrant-color', hex + '55')
-				         	break;   
+							// document.documentElement.style.setProperty('--vibrant-color', hex + '55')
+				         	break;
 				        }
 				    }
 			        i++
@@ -58,7 +58,7 @@
 			});
 			API.getAlbumTracks($scope.data.album.id).then(function (tracks) {
 				$scope.data.album.tracks = tracks.items
-		
+
 			})
 		});
 

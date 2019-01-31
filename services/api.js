@@ -1,5 +1,5 @@
 (function() {
-	
+
 	window.spotifyDeviceId = null
 	window.spotifyDevices = []
 
@@ -11,7 +11,7 @@
 
 		var baseUrl = 'https://api.spotify.com/v1';
 		var baseUrl2 = 'https://api.spotify.com/v2';
-		
+
 		window.onSpotifyWebPlaybackSDKReady = () => {
 	   		const token = Auth.getAccessToken();
 		  	const player = new Spotify.Player({
@@ -31,7 +31,7 @@
 		  	// Ready
 		  	player.addListener('ready', ({ device_id }) => {
 		  		window.currentSpotifyDeviceId = device_id
-				
+
 		  		console.log('Ready with Device ID', window.currentSpotifyDeviceId);
 		  	});
 
@@ -80,7 +80,18 @@
 				});
 				return ret.promise;
 			},
-
+			getRelatedArtists: function (artistId) {
+                var ret = $q.defer();
+                $http.get(baseUrl + '/artists/' + artistId + '/related-artists', {
+                    headers: {
+                        'Authorization': 'Bearer ' + Auth.getAccessToken()
+                    }
+                }).success(function(r) {
+                    console.log('got user tracks', r);
+                    ret.resolve(r);
+                });
+                return ret.promise;
+			},
 			getMyTracks: function() {
 				var ret = $q.defer();
 				$http.get(baseUrl + '/me/tracks', {
@@ -466,18 +477,18 @@
 				ret.resolve()
 			},
 
-			resumePlayback() {				
+			resumePlayback() {
 				var ret = $q.defer();
 				player.resume().then(() => {});
 				return ret.promise
 				ret.resolve()
 			},
 
-			pausePlayback() {		
+			pausePlayback() {
 				var ret = $q.defer();
 				player.pause().then(() => {});
 				return ret.promise
-				ret.resolve()				
+				ret.resolve()
 			},
 
 			getAlbumTracks: function(albumid) {
@@ -679,8 +690,8 @@
 				var ret = $q.defer();
 				$http.get(
 					baseUrl + '/recommendations?' + $.param(input),
-					{ 
-						headers: { 'Authorization': 'Bearer ' + Auth.getAccessToken() 
+					{
+						headers: { 'Authorization': 'Bearer ' + Auth.getAccessToken()
 					}
 				}).success(function(r) {
 					console.log('followed playlist', r);

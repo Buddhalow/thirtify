@@ -193,6 +193,8 @@ sp-flow {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	flex-wrap: wrap;
+
 }
 item {
 	padding: 10pt;
@@ -204,6 +206,13 @@ h3, summary {
 
 li, ul {
 	list-style-type: none;
+}
+sp-entry {
+	background-color: rgba(255, 255, 255, .1);
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-items: stretch;
 }
 .topgroup .titlebox {
 	position: absolute;

@@ -2,11 +2,22 @@
 
   <tab-bar>
     <tabbar-tab section="overview" label="Overview"></tabbar-tab>
+    <tabbar-tab section="artists" label="Fan also like"></tabbar-tab>
     <tabbar-tab section="about" label="About"></tabbar-tab>
   </tab-bar>
 <section tab-content section="overview" class="container">
 	<div class="row">
 		<div class="col-md-8">
+			<h3>Latest release</h3>
+			<a  ng-model="release" ng-if="release">
+				<sp-entry>
+					<img src="{{release.images[0].url}}" width="96" height="96"/>
+					<div style="padding: 10pt">
+						<h3>{{release.name}}</h3>
+						<p>{{release.release_date}}</p>
+					</div>
+				</sp-entry>
+			</a>
 			<h3>{{ 'popular-tracks' | locale }}</h3>
 			<table class="tracks">
 				<thead>
@@ -32,11 +43,18 @@
 		</div>
 		<div class="col-md-4">
 			<h3>{{ 'fan-also-likes' | locale }}</h3>
+			<div ng-if="!artists">
 				{{ 'error-loading-related-artists' | locale }}
+			</div>
+			<div ng-if="artists" style="display: flex; flex-direction: column">
+				<a href="/artists/{{artist.id}}" ng-repeat="artist in artists" style="flex-direction: row; display: flex; align-content: center; align-items: center">
+					<img style="border-radius: 50pt" src="{{artist.images[0].url}}" width="48" height="48" style="display: inline-block" />
+					<span style="margin-left: 12pt">{{artist.name}}</span>
+				</a>
+			</div>
 		</div>
 	</div>
-	<hr/>
-	<br/>
+	<div class="container">
 
 	<div ng-show="shows.length > 0">
 		<h3>{{ 'shows-featuring' | locale:data.name }}</h3>
@@ -53,50 +71,49 @@
 		<hr/>
 		<br/>
 	</div>
+	</div>
+	<div class="container">
 	<div ng-show="albums.length > 0">
 		<h3>{{ 'albums' | locale }}</h3>
-		<ul class="albums">
-			<li ng-repeat="t in albums">
+		<sp-flow class="albums">
+			<div ng-repeat="t in albums">
 				<a href="/albums/{{t.id}}">
 					<responsive-cover ng-model="t.images"></responsive-cover>
 				</a>
-				<p>
-					<b><a href="/albums/{{t.id}}">{{t.name}}</a></b>
-				</p>
-			</li>
-		</ul>
+
+			</div>
+		</sp-flow>
 		<hr/>
 		<br/>
 	</div>
+	</div>
 
+	<div class="container">
 	<div ng-show="singles.length > 0">
-		<h3>{{ 'singles' | locale }}</h3>
-		<ul class="albums">
-			<li ng-repeat="t in singles">
+		<h3 style="text-align: center">{{ 'singles' | locale }}</h3>
+		<sp-flow class="albums">
+			<div ng-repeat="t in singles">
 				<a href="/albums/{{t.id}}">
 					<responsive-cover ng-model="t.images"></responsive-cover>
 				</a>
-				<p>
-					<b><a href="/albums/{{t.id}}">{{t.name}}</a></b>
-				</p>
-			</li>
-		</ul>
+
+		</sp-flow>
 		<hr/>
 		<br/>
 	</div>
-
+	</div>
 	<div ng-show="appearson.length > 0">
 		<h3>{{ 'appears-on' | locale }}</h3>
-		<ul class="albums">
-			<li ng-repeat="t in appearson">
+		<sp-flow class="albums">
+			<div ng-repeat="t in appearson">
 				<a href="/albums/{{t.id}}">
 					<responsive-cover ng-model="t.images"></responsive-cover>
 				</a>
 				<p>
 					<b><a href="/albums/{{t.id}}">{{t.name}}</a></p>
 				</p>
-			</li>
-		</ul>
+			</div>
+		</sp-flow>
 		<hr/>
 		<br/>
 	</div>
@@ -115,6 +132,22 @@
 		</ul>
 		<hr/>
 		<br/>
+	</div>
+</section>
+<section tab-content section="artists" class="container">
+		<div ng-show="artists.length > 0">
+			<sp-flow>
+				<div ng-repeat="t in artists">
+					<a href="/artists/{{t.id}}">
+						 <img src="{{t.images[0].url}}" width="196" height="196" style="border-radius: 256pt">
+						<p>{{t.name}}</p>
+					</a>
+
+				</div>
+			</sp-flow>
+			<hr/>
+			<br/>
+		</div>
 	</div>
 </section>
 <!--
