@@ -94,19 +94,6 @@
 				templateUrl: 'partials/searchresults.html',
 				controller: 'SearchResultsController'
 			}).
-			when('/apps?/:bundle', {
-				templateUrl: 'partials/app.html',
-				controller: 'HTMLAppController'
-			}).
-
-			when('/apps?/:bundle/:resource', {
-				templateUrl: 'partials/app.html',
-				controller: 'HTMLAppController'
-			}).
-			when('/apps?/:bundle/:resource/:identifier', {
-				templateUrl: 'partials/app.html',
-				controller: 'HTMLAppController'
-			}).
 			when('/category/:categoryid', {
 				templateUrl: 'partials/browsecategory.html',
 				controller: 'BrowseCategoryController'

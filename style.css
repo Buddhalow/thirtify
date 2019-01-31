@@ -192,12 +192,17 @@ tabbar-tab {
 sp-flow {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
 	flex-wrap: wrap;
 
 }
+sp-item {
+	padding: 10pt;
+}
 item {
 	padding: 10pt;
+}
+sp-item {
+	width: 20%;
 }
 h3, summary {
 	font-weight: bold;
@@ -791,4 +796,8 @@ responsive-cover:active, .button:active {
 }
 .list {
 	padding: 20pt !important;
+}
+.container {
+	width: 70% !important;
+
 }

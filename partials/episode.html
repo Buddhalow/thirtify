@@ -2,6 +2,12 @@
 
 </generic-header>
 <div class="container">
+	<div class="col-md-12">
+		<h3 >{{'description' | locale}}</h3>
+		<p>{{data.description}}</p>
+	</div>
+</div>
+<div class="container">
 	<table class="tracks">
 		<thead>
 			<th></th>
@@ -29,29 +35,16 @@
 	<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show all tracks</a>
 	<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show only current track</a>
 </div>
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h3>{{'description' | locale}}</h3>
-			<p>{{data.description}}</p>
-		</div>
-	</div>
-</div>	
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<h3>{{'more-by' | locale:data.show.name}}</h3>
-			<ul class="playlists">
-		      <li ng-repeat="t in data.show.episodes" style="margin-right: 51pt; margin-bottom: 22pt" >
-		        <a href="/episodes/{{t.id}}" >
-		          <img src="{{data.show.images[0].url}}" width="200">
-		        </a>
-		        <p>
-		          <b><a href="/episodes/{{t.id}}">{{t.name}}</a></b>
-		        </p>
-		      </li>
-		    </ul>
+			<sp-flow class="playlists">
+		      <sp-item ng-model="t" ng-repeat="t in data.show.episodes">
+
+		      </sp-item>
+		    </sp-flow>
  		</div>
   	</div>
 </div>

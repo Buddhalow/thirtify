@@ -1,12 +1,10 @@
-<generic-header ng-model="data" wide="true"></generic-header>
+<generic-header ng-model="data"></generic-header>
 <div class="container">
-  <h2 style="text-align: center">{{ 'shows' | locale}}</h2>
+  <h2>{{ 'shows' | locale}}</h2>
   <sp-flow class="playlists shows" ng-show="shows.length > 0">
-    <div class="searchresult" ng-repeat="p in shows">
-      <a href="/show/{{p.id}}">
-        <responsive-cover ng-model="p.images" class="responsive-cover-playlist"></responsiveplaylist-cover>
-      </a>
-    </div>
+    <sp-item ng-model="p" ng-repeat="p in shows">
+
+    </sp-item>
     <hr/>
   </sp-flow>
 

@@ -2,16 +2,10 @@
 <div class="container">
 <div ng-show="userplaylists.length > 0">
   <h2>Public Playlists</h2>
-  <div class="row playlists ">
-    <div class="col-md-3" ng-repeat="t in userplaylists">
-      <a href="/playlists/{{t.id}}">
-        <responsive-cover ng-model="t.images" class="responsive-cover-playlist"></responsive-cover>
-      </a>
-      <p>
-        <b><a href="/playlists/{{t.id}}">{{t.name}}</a></b>
-      </p>
-    </div>
-  </div>
+  <sp-flow class="row playlists ">
+    <sp-item ng-model="t" class="col-md-3" ng-repeat="t in userplaylists">
+    </sp-item>
+  </sp-flow>
   <hr/>
   <br/>
 </div>

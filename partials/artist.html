@@ -58,61 +58,45 @@
 
 	<div ng-show="shows.length > 0">
 		<h3>{{ 'shows-featuring' | locale:data.name }}</h3>
-		<ul class="playlists">
-			<li ng-repeat="t in shows">
+		<sp-flow class="playlists">
+			<sp-item ng-model="t">
 				<a href="/shows/{{t.id}}">
 					<responsive-cover ng-model="t.images"></responsive-cover>
 				</a>
 				<p>
 					<b><a href="/albums/{{t.id}}">{{t.name}}</a></b>
 				</p>
-			</li>
-		</ul>
+			</sp-item>
+		</sp-flow>
 		<hr/>
 		<br/>
 	</div>
 	</div>
-	<div class="container">
 	<div ng-show="albums.length > 0">
 		<h3>{{ 'albums' | locale }}</h3>
 		<sp-flow class="albums">
-			<div ng-repeat="t in albums">
-				<a href="/albums/{{t.id}}">
-					<responsive-cover ng-model="t.images"></responsive-cover>
-				</a>
-
-			</div>
+			<sp-item ng-model="t" ng-repeat="t in albums">
+			</sp-item>
 		</sp-flow>
 		<hr/>
 		<br/>
 	</div>
-	</div>
 
-	<div class="container">
 	<div ng-show="singles.length > 0">
 		<h3 style="text-align: center">{{ 'singles' | locale }}</h3>
 		<sp-flow class="albums">
-			<div ng-repeat="t in singles">
-				<a href="/albums/{{t.id}}">
-					<responsive-cover ng-model="t.images"></responsive-cover>
-				</a>
-
+			<sp-item ng-model="t" ng-repeat="t in singles">
+			</sp-item>
+			</a>
 		</sp-flow>
 		<hr/>
 		<br/>
-	</div>
 	</div>
 	<div ng-show="appearson.length > 0">
 		<h3>{{ 'appears-on' | locale }}</h3>
 		<sp-flow class="albums">
-			<div ng-repeat="t in appearson">
-				<a href="/albums/{{t.id}}">
-					<responsive-cover ng-model="t.images"></responsive-cover>
-				</a>
-				<p>
-					<b><a href="/albums/{{t.id}}">{{t.name}}</a></p>
-				</p>
-			</div>
+			<sp-item ng-model="t" ng-repeat="t in appearson">
+			</sp-item>
 		</sp-flow>
 		<hr/>
 		<br/>
@@ -137,13 +121,10 @@
 <section tab-content section="artists" class="container">
 		<div ng-show="artists.length > 0">
 			<sp-flow>
-				<div ng-repeat="t in artists">
-					<a href="/artists/{{t.id}}">
-						 <img src="{{t.images[0].url}}" width="196" height="196" style="border-radius: 256pt">
-						<p>{{t.name}}</p>
-					</a>
+				<sp-item round="true" ng-model="t" ng-repeat="t in artists">
 
-				</div>
+
+				</sp-item>
 			</sp-flow>
 			<hr/>
 			<br/>

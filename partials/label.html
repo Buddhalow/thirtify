@@ -3,14 +3,8 @@
 	<div ng-show="artists.length > 0">
 		<h3 style="text-align: center">{{'top-artists' | locale}}</h3>
 		<sp-flow>
-			<item ng-repeat="t in artists.slice(0,6)">
-				<a href="/artists/{{t.id}}">
-					<responsive-cover ng-model="t.images" style="border-radius: 100pt"></responsive-cover>
-				</a>
-				<p>
-					<b><a href="/albums/{{t.id}}">{{t.name}}</a></b>
-				</p>
-			</item>
+			<sp-item round="true" ng-model="t" ng-repeat="t in artists.slice(0,5)">
+			</sp-item>
 		</sp-flow>
 		<hr/>
 		<br/>
@@ -18,14 +12,8 @@
 	<div ng-show="albums.length > 0">
 		<h3 style="text-align: center">{{'top-albums' | locale}}</h3>
 		<sp-flow>
-			<item ng-repeat="t in albums.slice(0,6)">
-				<a href="/albums/{{t.id}}">
-					<responsive-cover ng-model="t.images"></responsive-cover>
-				</a>
-				<p>
-					<b><a href="/albums/{{t.id}}">{{t.name}}</a></b>
-				</p>
-			</item>
+			<sp-item ng-model="t" ng-repeat="t in albums.slice(0,5)">
+			</sp-item>
 		</sp-flow>
 		<hr/>
 		<br/>
@@ -33,30 +21,9 @@
 	<div ng-show="singles.length > 0">
 		<h3 style="text-align: center">{{'top-singles' | locale}} </h3>
 		<sp-flow class="albums">
-			<item ng-repeat="t in singles.slice(0,6)">
-				<a href="/albums/{{t.id}}">
-					<responsive-cover ng-model="t.images"></responsive-cover>
-				</a>
-				<p>
-					<b><a href="/albums/{{t.id}}">{{t.name}}</a></b>
-				</p>
-			</item>
+			<sp-item ng-model="t" ng-repeat="t in singles.slice(0,5)">
+			</sp-item>
 		</sp-flow>
-		<hr/>
-		<br/>
-	</div>
-	<div ng-show="appearson.length > 0">
-		<h3 style="text-align: center">{{'appears-on' | locale}}</h3>
-		<ul class="albums">
-			<li ng-repeat="t in appearson.slice(6)">
-				<a href="/albums/{{t.id}}">
-					<responsive-cover ng-model="t.images"></responsive-cover>
-				</a>
-				<p>
-					<b><a href="/albums/{{t.id}}">{{t.name}}</a></p>
-				</p>
-			</li>
-		</ul>
 		<hr/>
 		<br/>
 	</div>

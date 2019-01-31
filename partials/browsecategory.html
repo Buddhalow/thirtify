@@ -2,31 +2,21 @@
 <div class="container" ng-if="playlists.length > 0">
   <h3>Top Playlists</h3>
   <div ng-show="playlists.length > 0">
-    <ul class="playlists">
-      <li ng-repeat="t in playlists">
-        <a href="/users/{{t.owner.id}}/playlists/{{t.id}}">
-          <responsive-cover ng-model="t.images"></responsive-cover>
-        </a>
-        <p>
-          <b><a href="/users/{{t.owner.id}}/playlists/{{t.id}}">{{t.name}}</a></b>
-        </p>
-      </li>
-    </ul>
+    <sp-flow class="playlists">
+      <sp-item ng-model="t" ng-repeat="t in playlists">
+
+      </sp-item>
+    </sp-flow>
   </div>
 </div>
 
 <div class="container" ng-if="shows.length > 0">
   <h3>Shows</h3>
   <div ng-show="shows.length > 0">
-    <ul class="shows">
-      <li ng-repeat="t in shows">
-        <a href="/shows/{{t.id}}">
-          <responsive-cover ng-model="t.images"></responsive-cover>
-        </a>
-        <p>
-          <b><a href="/shows/{{t.id}}">{{t.name}}</a></b>
-        </p>
-      </li>
-    </ul>
+    <sp-flow class="shows">
+      <sp-item ng-model="t" ng-repeat="t in shows">
+
+      </sp-item>
+    </sp-flow>
   </div>
 </div>

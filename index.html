@@ -29,6 +29,7 @@
 		<script src="directives/playlistcover.js"></script>
 		<script src="directives/responsivecover.js"></script>
 		<script src="directives/contextmenu.js"></script>
+        <script src="directives/item.js"></script>
 		<script src="directives/focusme.js"></script>
 		<script src="directives/tabbar.js"></script>
 		<script src="directives/header.js"></script>
@@ -63,6 +64,7 @@
 		<script src="controllers/browse.js"></script>
 		<script src="controllers/browsecategory.js"></script>
 		<script src="controllers/channel.js"></script>
+		<script src="apps/reddit/js/main.js"></script>
 	</head>
 	<body ng-controller="AppController">
 		<div class="fullview playerview" ng-show="showplayer">
@@ -96,7 +98,12 @@
 							</ul>
 							<b><a href="/me">YOUR MUSIC</a></b>
 							<ul class="menuitems">
-								<li><a href="/users/{{username}}/tracks" ng-class="getClass('/users/{{username}}/tracks')">Songs</a></li>
+								<li><a href="/users/{{username}}/tracks" ng-class="
+									('/users/{{username}}/tracks')">Songs</a></li>
+							</ul>
+							<b><a href="/me">YOUR APPS</a></b>
+							<ul class="menuitems">
+								<li><a href="/apps/reddit" ng-class="getClass('/app/reddit')">Reddit</a></li>
 							</ul>
 							<b><a href="/me">PLAYLISTS</a></b>
 							<ul class="menuitems">
@@ -123,6 +130,7 @@
 					<div class="mainview" scroll>
 						<div ng-view></div>
 					</div>
+					<div class="rightgroup" style="width: 30%"></div>
 				</div>
 				<div class="bottomgroup">
 					<div class="leftcontrols">
