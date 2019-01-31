@@ -8,7 +8,8 @@
 			scope: {
 				data: '=ngModel',
 				isFollowable: '=followable',
-				isPlayable: '=playable'
+				isPlayable: '=playable',
+				isWide: '=wide'
 			},
 			templateUrl: '/partials/generic_header.html'
 		};

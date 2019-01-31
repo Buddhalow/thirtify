@@ -1,0 +1,12 @@
+Thirtify Contributors
+=====================
+
+
+* **[Alexander Forselius](https://github.com/drsounds)**
+
+  * Rewrite playback to be controlled by the remote API (Might make it optional later)
+  * Updated design to match newer versions of Spotify desktop client post 2016-
+
+* **[Per-Olof Jernberg](https://github.com/possan)
+
+  * Original author of the project
