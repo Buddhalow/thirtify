@@ -143,7 +143,8 @@
 			});
 	});
 
-	app.controller('AppController', function($scope, Auth, API, $location, I18n) {
+	app.controller('AppController', function($scope, Auth, API, $location, I18n, $rootScope) {
+		$rootScope.resources = {}
 		console.log('in AppController');
 
 		console.log(location);
@@ -170,7 +171,7 @@
 		window.addEventListener("message", function(event) {
 			console.log('got postmessage', event);
 			var hash = JSON.parse(event.data);
-			if (hash.type == 'access_token') {
+			if (hash.type === 'access_token') {
 				Auth.setAccessToken(hash.access_token, hash.expires_in || 60);
 				checkUser(true);
 			}

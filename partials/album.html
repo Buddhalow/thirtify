@@ -46,7 +46,9 @@
 	</div>
 </div>
 <div class="container">
-	<p ng-repeat="c in data.copyrights" style="margin-top: 12pt; margin-bottom: 12pt; font-size: 11px">({{c.type}}) {{c.text}}</p>
+	<p ng-repeat="c in data.copyrights" style="margin-top: 12pt; margin-bottom: 12pt; font-size: 11px">
+		({{c.type}}) <a href="/labels/{{c.name}}">{{c.text}}</a>
+	</p>
 </div>
 
 <div class="container" ng-if="albums && albums.length > 0">

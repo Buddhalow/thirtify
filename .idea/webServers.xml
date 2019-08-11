@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="010dbcad-bfa6-4f95-9b49-433bc2513837" name="Codeanywhere 8" url="http://host17.codeanyhost.com">
+        <fileTransfer host="host17.codeanyhost.com" port="24255" privateKey="$USER_HOME$/.ssh/thurtify.key" rootFolder="/home/cabox/workspace" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="24255" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

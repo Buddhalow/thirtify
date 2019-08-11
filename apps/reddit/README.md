@@ -16,7 +16,7 @@ Currently, as there is no app finder and manager yet integrated into Thirtify, f
 
 ````
 
-Then browse to /app/thirtify or enter 'spotify:app:thirtify' in the search field.
+Then browse to /app/reddit or enter 'spotify:app:reddit' in the search field.
 
 Have fun!
 

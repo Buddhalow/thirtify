@@ -38,17 +38,18 @@
 			});
 			albums.items.forEach(function(album) {
 				console.log(album);
-				if (album.album_type == 'album') {
+				if (album.album_type === 'album') {
 					$scope.albums.push(album);
 				}
-				if (album.album_type == 'single') {
+				if (album.album_type === 'single') {
 					$scope.singles.push(album);
 				}
-				if (album.album_type == 'appears-on') {
+				if (album.album_type === 'appears-on') {
 					$scope.appearson.push(album);
 				}
 			})
 			$scope.artists = artists.items
+			$scope.tracks = tracks.items
 
 		});
 

@@ -1,3 +1,4 @@
+
 <generic-header ng-model="data"></generic-header>
 <div class="container">
   <tab-bar>
@@ -11,7 +12,7 @@
   <div ng-show="featuredPlaylists.length > 0">
     <h3>{{message}}</h3>
     <sp-flow class="playlists">
-      <sp-item ng-model="t" ng-repeat="t in featuredPlaylists.slice(0,6)">
+      <sp-item ng-model="t" ng-repeat="t in featuredPlaylists.slice(0,5)">
 
       </sp-item>
     </sp-flow>

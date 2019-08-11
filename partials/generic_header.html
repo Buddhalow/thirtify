@@ -1,4 +1,25 @@
-<div style="height: 300pt" ng-style="{'transform': 'translate(0, ' + ($root.scrollY > 200 ? $root.scrollY - 200 : 0) + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
+<div style="padding-top: 25pt; z-index: 10000; padding-top: 50pt" ng-if="$root.scrollY > 200" ng-style="{'padding': '50pt 0pt', 'transform': 'translate(0, ' + $root.scrollY + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
+
+    <div class="container" style=" display: flex; flex-direction: row">
+        <div ng-show="data.images && data.images.length > 0 && data.type != 'author'" style="display: flex; flex-direction: row; justify-content: center; align-items: center; flex: 0 0 210px; ">
+            <img src="{{data.images[0].url}}" width="98" height="98" />
+        </div>
+        <div style="display: flex; flex: 1; flex-direction: column; align-items: stretch; justify-content: center;  ">
+            <h3 style="padding-top: 2pt;">{{data.name}}</h3>
+            <p><span ng-if="data.authors" >{{'by' | locale}} <a ng-repeat="author in data.authors" href="/{{author.type}}s/{{author.id}}">{{author.name || author.id}}</a></span>
+           
+            <div class="buttons" style="display: none">
+                <a ng-if="isPlayable" ng-click="playall()" class="button green">PLAY ALL</a>
+                <a ng-if="isFollowable" ng-if="username !== profileUsername" ng-click="follow(isFollowing)" ng-mouseover="isFollowHovered=true" ng-mouseout="isFollowHovered=false" class="button button-add"><span>{{ isFollowing ? (isFollowHovered ? 'UNFOLLOW' : 'FOLLOWING') : 'FOLLOW' }}</span></a>
+                <div ng-if="isFollowable" class="follower-count" style="float: right">{{data.followers.total | number}} {{'followers' | locale}}</div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div ng-if="$root.scrollY < 200 || !$root.scrollY" style="height: 300pt" ng-style="{'transform': 'translate(0, ' + ($root.scrollY > 200 ? $root.scrollY - 200 : 0) + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
     <div ng-if="isWide" class="header-bg" ng-style="{ 'background-position': '0pt ' + ($root.scrollY * 0.9) + 'px', opacity: (1 - ($root.scrollY / 200)), 'position': 'absolute', 'left': 0, 'top': 0, 'width': '100%', height: '300pt', 'mask-image': 'linear-gradient(to bottom, black 20%, transparent)', 'padding-top': '120pt', 'padding-bottom': '50pt', 'background-size': 'cover', 'background-image': 'url(' + (data.images && data.images.length > 0 ? data.images[0].url  : '') + ')'}">
 
     </div>
@@ -25,7 +46,9 @@
                     <div ng-if="isFollowable" class="follower-count" style="float: right">{{data.followers.total | number}} {{'followers' | locale}}</div>
 
                 </div>
+                <track-announcement ng-if="data.announcement" ng-model="data.announcement" style="width: 100%; display: flex; align-items: center; justify-content: center; padding: 56pt">
 
+                </track-announcement>
             </div>
         </header>
         <header ng-style="{'position': 'absolute', 'left': 0, 'top': 0, 'width': '100%', height: '300pt', 'margin-bottom': '12pt', 'width': '100%',  'display': 'flex', 'flex-direction': 'column', 'justify-content': 'flex-end', 'align-items': 'center'}" ng-if="isWide">

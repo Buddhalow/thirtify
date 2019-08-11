@@ -26,7 +26,14 @@
 			let img = document.createElement('img')
 			img.crossOrigin = "Anonymous";
 			img.src = $scope.data.images && $scope.data.images.length > 0 ? $scope.data.images[0].url : ''
-
+			album.copyrights = album.copyrights.map(c => {
+				console.log(c);
+				return ({
+					...c,
+					name: c.text.split(/ /g).slice(1).join(' ')
+				})
+			});
+			console.log(album.copyrights);
 			img.addEventListener('load', function() {
 	   			var vibrant = new Vibrant(img);
 

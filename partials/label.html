@@ -27,6 +27,15 @@
 		<hr/>
 		<br/>
 	</div>
+	<div ng-show="toptracks.length > 0">
+		<h3 style="text-align: center">{{'top-tracks' | locale}}</h3>
+		<sp-flow>
+			<sp-item round="true" ng-model="t" ng-repeat="t in toptracks.slice(0,5)">
+			</sp-item>
+		</sp-flow>
+		<hr/>
+		<br/>
+	</div>
 </section>
 <!--
 
