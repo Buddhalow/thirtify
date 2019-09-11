@@ -58,6 +58,10 @@
 				templateUrl: 'partials/user.html',
 				controller: 'UserController'
 			}).
+			when('/curators?/:username', {
+				templateUrl: 'partials/curator.html',
+				controller: 'CuratorController'
+			}).
 			when('/users?/:username/tracks', {
 				templateUrl: 'partials/usertracks.html',
 				controller: 'UserTracksController'

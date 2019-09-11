@@ -18,6 +18,22 @@
 	}
 	module.factory('Thirtify', function(Auth, $q, $http) {
 		return {
+			getCuratorByIdentifier: function (identifier) {
+				return new Promise((resolve, reject) => {
+						fetch('https://api.thirtify.app/curator/' + identifier).then(r => r.json()).then(result => {
+							console.log("RESULT", result);
+						resolve(result);
+					}).catch(err => reject(err));
+				})
+			},
+			getCurators: function (identifier) {
+				return new Promise((resolve, reject) => {
+					fetch('https://api.thirtify.app/curator').then(r => r.json()).then(result => {
+						console.log("RESULT", result);
+						resolve(result);
+					}).catch(err => reject(err));
+				})
+			},
 			getChannelByIdentifier: function (identifier) {
 				return new Promise(function (resolve, reject) {
 					new Parse.Query('Channel').equalTo('identifier', identifier).first().then(function (channel) {

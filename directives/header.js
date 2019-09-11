@@ -5,6 +5,10 @@
 	module.directive('genericHeader', function() {
 		return {
 			restrict: 'E',
+			transclude: {
+				'toolbar': '?headerToolbar',
+				'right': '?headerRight'
+			},
 			scope: {
 				data: '=ngModel',
                 scrollY: '=scrollY',

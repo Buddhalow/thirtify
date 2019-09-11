@@ -6,6 +6,7 @@
     <tabbar-tab section="categories" label="{{ 'genres-and-themes' | locale }}"></tabbar-tab>
     <tabbar-tab section="newreleases" label="{{ 'new-releases' | locale }}"></tabbar-tab>
     <tabbar-tab section="shows" label="{{'shows' | locale}}"></tabbar-tab>
+    <tabbar-tab section="curators" label="{{'curators' | locale}}"></tabbar-tab>
   </tab-bar>
 </div>
 <div class="container" tab-content section="overview">
@@ -14,6 +15,15 @@
     <sp-flow class="playlists">
       <sp-item ng-model="t" ng-repeat="t in featuredPlaylists.slice(0,5)">
 
+      </sp-item>
+    </sp-flow>
+    <hr/>
+    <br/>
+  </div>
+  <h3>{{'Latest curators' | locale}}</h3>
+  <div ng-show="curators.length > 0">
+    <sp-flow class="albums">
+      <sp-item ng-model="t" ng-repeat="t in curators.slice(0,5)">
       </sp-item>
     </sp-flow>
     <hr/>
@@ -61,4 +71,14 @@
     <hr/>
     <br/>
   </div>
+</div>
+<div class="container" section="curators" tab-content>
+    <div ng-show="curators.length > 0">
+      <sp-flow class="albums">
+        <sp-item ng-model="t" ng-repeat="t in curators">
+        </sp-item>
+      </sp-flow>
+      <hr/>
+      <br/>
+    </div>
 </div>

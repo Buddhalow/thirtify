@@ -7,9 +7,9 @@
 		var CLIENT_ID = '';
 		var REDIRECT_URI = '';
 
-			CLIENT_ID =	'9cae232f0ddd4ba3b55b7e54ca6e76f0';
-			REDIRECT_URI = 'http://localhost:2858/callback.html';
-		
+			CLIENT_ID =	'66be25803e3948729b792a934c5bab26';
+			REDIRECT_URI = 'https://thirtify.app/callback.html';
+
 
 		function getLoginURL(scopes) {
 			return 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID
@@ -23,22 +23,25 @@
 				var url = getLoginURL([
 					'user-read-private',
 					'playlist-read-private',
+					'playlist-read-collaborative',
 					'playlist-modify-public',
 					'playlist-modify-private',
 					'user-library-read',
 					'user-library-modify',
 					'user-follow-read',
 					'user-follow-modify',
-					"streaming", 
-					"user-read-birthdate", 
-					"user-read-email", 
-					"user-read-private"
+					'app-remote-control',
+					"streaming",
+					"user-read-email",
+					"user-read-private",
+					"user-read-recently-played",
+					"user-top-read"
 				]);
 
-				var width = 450,
-						height = 730,
-						left = (screen.width / 2) - (width / 2),
-						top = (screen.height / 2) - (height / 2);
+				const width = 450,
+					height = 730,
+					left = (screen.width / 2) - (width / 2),
+					top = (screen.height / 2) - (height / 2);
 
 				var w = window.open(url,
 						'Spotify',

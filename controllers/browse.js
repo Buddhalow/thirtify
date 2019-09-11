@@ -2,7 +2,7 @@
 
   var module = angular.module('PlayerApp');
 
-  module.controller('BrowseController', function($scope, API, Auth, $routeParams) {
+  module.controller('BrowseController', function($scope, API, Auth, $routeParams, Thirtify) {
 
     function pad(number) {
       if ( number < 10 ) {
@@ -71,6 +71,10 @@
       // @todo: description, follower count
       $scope.newReleases = results.albums.items;
     });
+
+    Thirtify.getCurators().then(function (result) {
+      $scope.curators = result.curators.items;
+    })
 
     API.getBrowseCategories().then(function(results) {
       $scope.genresMoods = results.categories.items;

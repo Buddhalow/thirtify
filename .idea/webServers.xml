@@ -2,12 +2,12 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="010dbcad-bfa6-4f95-9b49-433bc2513837" name="Codeanywhere 8" url="http://host17.codeanyhost.com">
-        <fileTransfer host="host17.codeanyhost.com" port="24255" privateKey="$USER_HOME$/.ssh/thurtify.key" rootFolder="/home/cabox/workspace" accessType="SFTP" keyPair="true">
+      <webServer id="8f0bc7a5-4e50-4658-9522-e00718b30eb8" name="thirtify" url="http://buddhalow.webfactional.com">
+        <fileTransfer host="buddhalow.webfactional.com" port="22" rootFolder="/home/buddhalow/webapps/thirtify" accessType="SFTP" authAgent="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
-          <option name="port" value="24255" />
+          <option name="port" value="22" />
         </fileTransfer>
       </webServer>
     </option>
