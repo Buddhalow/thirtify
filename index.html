@@ -1,6 +1,24 @@
 <html ng-app="PlayerApp">
 	<head>
-		<title>Thirtify</title>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-31B2N133JQ"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-31B2N133JQ');
+		</script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147672765-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-147672765-1');
+		</script>
+
+		<title>Thirtify (Pre-alpha)</title>
 		<base href="/">
 		<link rel="stylesheet" href="style.css" />
 		<link rel="stylesheet" href="grid12.css" />
@@ -92,8 +110,8 @@
 					</div>
 				</div>
 				<div class="midgroup">
-					<div class="menuview">
-						<div class="list scrollable">
+					<div class="menuview" style="display: flex; flex-direction: column">
+						<div class="list scrollable" style="flex: 1; height: 100%">
 							<b><a href="/">MAIN</a></b>
 							<ul class="menuitems">
 								<li><a href="/" ng-class="getClass('/')">Browse</a></li>
@@ -117,7 +135,7 @@
 								</li>
 							</ul>
 						</div>
-						<div class="preview">
+						<div class="preview" style="display: none">
 							<a href="/albums/{{trackdata.album.id}}">
 								<responsive-cover ng-model="trackdata.album.images"></responsive-cover>
 							</a>
@@ -134,7 +152,7 @@
 					</div>
 					<div class="rightgroup" style="width: 30%"></div>
 				</div>
-				<div class="bottomgroup">
+				<div class="bottomgroup" style="display: none">
 					<div class="leftcontrols">
 						<div class="prevbutton">
 							<a ng-click="prev()"><img src="images/btn-prev.png" /></a>
