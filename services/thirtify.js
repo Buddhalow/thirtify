@@ -26,6 +26,14 @@
 					}).catch(err => reject(err));
 				})
 			},
+			getArticlesByCurator: function (identifier) {
+				return new Promise((resolve, reject) => {
+					fetch('https://api.thirtify.app/curator/' + identifier + '/articles').then(r => r.json()).then(result => {
+						console.log("RESULT", result);
+						resolve(result);
+					}).catch(err => reject(err));
+				})
+			},
 			getCurators: function (identifier) {
 				return new Promise((resolve, reject) => {
 					fetch('https://api.thirtify.app/curator').then(r => r.json()).then(result => {

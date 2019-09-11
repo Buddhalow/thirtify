@@ -12,8 +12,8 @@
             Thirtify.getCuratorByIdentifier($scope.profileUsername),
             API.getUser($scope.profileUsername),
             API.getPlaylists($scope.profileUsername),
-            API.isFollowing($scope.profileUsername, "user")
-        ]).then(function ([curator, user, userPlaylists, booleans]) {
+            API.isFollowing($scope.profileUsername, "user"),
+        ]).then(function ([curator, user, userPlaylists, booleans, articles]) {
                 if (!curator) {
                     curator = user;
                 }

@@ -23,7 +23,7 @@
   <h3>{{'Latest curators' | locale}}</h3>
   <div ng-show="curators.length > 0">
     <sp-flow class="albums">
-      <sp-item ng-model="t" ng-repeat="t in curators.slice(0,5)">
+      <sp-item round="true" ng-model="t" ng-repeat="t in curators.slice(0,5)">
       </sp-item>
     </sp-flow>
     <hr/>
