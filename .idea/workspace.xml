@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ee62c9af-9dbd-437b-8ad8-d3b12118206c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/curator.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/curator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/curator.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/curator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/thirtify.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/thirtify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/browse.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +68,8 @@
       <workItem from="1565508413532" duration="6223000" />
       <workItem from="1568203545951" duration="164000" />
       <workItem from="1568203809612" duration="1677000" />
-      <workItem from="1568206500734" duration="9266000" />
+      <workItem from="1568206500734" duration="9342000" />
+      <workItem from="1568217037584" duration="18000" />
     </task>
     <task id="LOCAL−00001" summary="Added curator page">
       <created>1568211492281</created>
@@ -98,7 +95,13 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1568212207486</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Fixed some layout stuff">
+      <created>1568216876730</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1568216876730</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +124,7 @@
     <MESSAGE value="Added curator page" />
     <MESSAGE value="Added fork disclaimer" />
     <MESSAGE value="Hide non funcational items" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hide non funcational items" />
+    <MESSAGE value="Fixed some layout stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some layout stuff" />
   </component>
 </project>

@@ -12,7 +12,7 @@
     }
     $scope.data = {
       name: 'Browse',
-      announcement: {
+    /*  announcement: {
         "collaborative": false,
         "description": "This is Dr. Sounds. The essential tracks, all in one playlist.",
         "external_urls": {
@@ -44,7 +44,7 @@
         "primary_color": null,
         "public": false,
         "snapshot_id": "MjYwOTEzNTcsMDAwMDAwMDAzMGUyNzVjMDQxMWQ0MDEzY2E1Zjc2ZDdhYmU5Mzc3NA=="
-      }
+      }*/
     }
 
     /**
