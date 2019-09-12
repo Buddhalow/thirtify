@@ -159,7 +159,7 @@ hr {
 tab-bar {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: flex-start;
 	margin-bottom: 25pt;
 }
 tabbar-tab {
@@ -424,7 +424,7 @@ generic-header {
 	box-shadow: 0pt 0pt 12pt rgba(0, 0, 0, .8);
 }
 
-generic-header {
+.mainview {
 	background: -moz-linear-gradient(top, var(--vibrant-color) 0%, transparent 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, var(--vibrant-color) 0%, transparent 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, var(--vibrant-color) 0%, transparent 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -805,4 +805,25 @@ responsive-cover:active, .button:active {
 }
 ::-webkit-scrollbar {
 	background: black;
+}
+header {
+	display: flex; flex-direction: row; align-items: flex-end
+}
+.header-main {
+	display: flex; flex: 1; flex-direction: column; align-items: stretch; justify-content: flex-end;  height: 100%
+}
+@media screen and (max-width: 728pt) {
+	header {
+		padding-top: 28pt;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.header-main {
+		align-items: center;
+	}
+
+	tab-bar {
+		justify-content: center;
+	}
 }

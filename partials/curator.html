@@ -1,13 +1,14 @@
-<generic-header ng-model="data" followable="true">
+<generic-header ng-model="data"  wide="true" round="true" followable="true">
     <header-toolbar>
         <a ng-if="data.submitUrl" target="_blank" href="{{data.submitUrl}}?utm_source=thirtify&utm_medium=thirtify&utm_campaign=thirtify&utm_content=Submit+Music+Button" class="button">Submit music</a>
         <a ng-if="data.url" target="_blank" href="{{data.url}}?utm_source=thirtify&utm_medium=thirtify&utm_campaign=thirtify&utm_content=Submit+Music+Button" class="button">Visit home page</a>
     </header-toolbar>
 </generic-header>
 <div class="container">
-    <tab-bar>
+    <tab-bar style="justify-content: center">
         <tabbar-tab section="overview" label="{{ 'overview' | locale}}"></tabbar-tab>
         <tabbar-tab section="playlists" label="{{ 'playlists' | locale }}"></tabbar-tab>
+        <tabbar-tab section="articles" label="{{ 'news' | locale }}"></tabbar-tab>
     </tab-bar>
 </div>
 <div class="container" tab-content section="overview">

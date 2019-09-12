@@ -1,5 +1,5 @@
 <a ng-href="/{{data.type}}/{{data.id}}">
-<img ng-if="data.images" ng-style="{'border-radius': isRound ? '525pt' : '0'}" width="100%" src="{{data.images[0].url}}" style="margin-bottom: 3pt">
+<img ng-if="data.images" class="cover" ng-style="{'border-radius': isRound ? '525pt' : '0'}" width="100%" src="{{data.images[0].url}}" style="margin-bottom: 3pt">
 <img ng-if="data.icons"  ng-style="{'border-radius': isRound ? '25pt' : '0'}" width="100%" src="{{data.icons[0].url}}" style="margin-bottom: 3pt">
 <span style="color: white; font-weight: bold; font-size: 12pt">{{data.name}}</span><br>
 <span ng-if="data.artists">

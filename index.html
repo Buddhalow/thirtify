@@ -62,6 +62,7 @@
 		<script src="controllers/login.js"></script>
 		<script src="controllers/curator.js"></script>
 		<script src="controllers/genre.js"></script>
+		<script src="controllers/library.js"></script>
 		<script src="controllers/chart.js"></script>
 		<script src="controllers/year.js"></script>
 		<script src="controllers/country.js"></script>
@@ -125,13 +126,22 @@
 							<ul class="menuitems">
 								<li><a href="/app/reddit" ng-class="getClass('/app/reddit')">Reddit</a></li>
 							</ul>
-							<b><a href="/me">PLAYLISTS</a></b>
+							<b><a href="/me">Library</a></b>
 							<ul class="menuitems">
-								<li ng-repeat="pl in playlists track by pl.id" ng-context-menu="menuOptions(pl)" ng-class="getClass('/users/{{pl.username}}/playlists/{{pl.id}}')">
-									<a href="/playlists/{{pl.id}}" ng-if="!pl.editing">
-										{{pl.name}}
+								<li>
+									<a href="/library#playlists">
+										Playlists
 									</a>
-									<input focus-me="focusInput" ng-blur="playlistNameBlur(pl)" ng-if="pl.editing" class="edit" type="text" value="{{pl.name}}" name="title" ng-keyup="playlistNameKeyUp($event, pl)">
+								</li>
+								<li>
+									<a href="/library#artists">
+										Artists
+									</a>
+								</li>
+								<li>
+									<a href="/library#albuns">
+										Albums
+									</a>
 								</li>
 							</ul>
 						</div>

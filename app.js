@@ -118,6 +118,10 @@
 				templateUrl: 'partials/publisher.html',
 				controller: 'PublisherController'
 			}).
+			when('/library', {
+				templateUrl: 'partials/library.html',
+				controller: 'LibraryController'
+			}).
 			when('/years?/:identifier', {
 				templateUrl: 'partials/year.html',
 				controller: 'YearController'

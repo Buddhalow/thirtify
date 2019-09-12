@@ -10,6 +10,7 @@
 				'right': '?headerRight'
 			},
 			scope: {
+				isRound: '=round',
 				data: '=ngModel',
                 scrollY: '=scrollY',
 				isFollowable: '=followable',

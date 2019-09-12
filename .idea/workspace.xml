@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee62c9af-9dbd-437b-8ad8-d3b12118206c" name="Default Changelist" comment="">
+    <list default="true" id="ee62c9af-9dbd-437b-8ad8-d3b12118206c" name="Default Changelist" comment="Disabled our 'self promotion' announcement">
+      <change afterPath="$PROJECT_DIR$/controllers/library.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/partials/library.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/browse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/curator.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/curator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/playlist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/directives/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/directives/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/curator.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/curator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/generic_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/generic_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/playlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/playlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +80,10 @@
       <workItem from="1568203545951" duration="164000" />
       <workItem from="1568203809612" duration="1677000" />
       <workItem from="1568206500734" duration="9342000" />
-      <workItem from="1568217037584" duration="18000" />
+      <workItem from="1568217037584" duration="523000" />
+      <workItem from="1568256646857" duration="1216000" />
+      <workItem from="1568262797440" duration="10000" />
+      <workItem from="1568296321624" duration="2874000" />
     </task>
     <task id="LOCAL−00001" summary="Added curator page">
       <created>1568211492281</created>
@@ -101,7 +115,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1568216876730</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Disabled our 'self promotion' announcement">
+      <created>1568217078602</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1568217078602</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +145,7 @@
     <MESSAGE value="Added fork disclaimer" />
     <MESSAGE value="Hide non funcational items" />
     <MESSAGE value="Fixed some layout stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some layout stuff" />
+    <MESSAGE value="Disabled our 'self promotion' announcement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disabled our 'self promotion' announcement" />
   </component>
 </project>

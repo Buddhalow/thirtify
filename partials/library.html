@@ -1,0 +1,65 @@
+
+<generic-header ng-model="data"></generic-header>
+<div class="container">
+    <tab-bar>
+        <tabbar-tab section="overview" label="{{ 'overview' | locale}}"></tabbar-tab>
+        <tabbar-tab section="playlists" label="{{ 'playlists' | locale }}"></tabbar-tab>
+        <tabbar-tab section="artists" label="{{ 'artists' | locale }}"></tabbar-tab>
+        <tabbar-tab section="albums" label="{{'albums' | locale}}"></tabbar-tab>
+        <tabbar-tab section="shows" label="{{'shows' | locale}}"></tabbar-tab>
+    </tab-bar>
+</div>
+<div class="container" tab-content section="overview">
+    <div ng-show="playlists.length > 0">
+        <h3>{{ 'Playlists' | locale}} <a href="/library#playlists" style="float: right">See more &doublebarwedge;</a></h3>
+        <sp-flow class="playlists">
+            <sp-item ng-model="t" ng-repeat="t in playlists.slice(0,5)">
+
+            </sp-item>
+        </sp-flow>
+        <hr/>
+        <br/>
+    </div>
+</div>
+<div class="container" tab-content section="playlists">
+    <div ng-show="playlists.length > 0">
+        <sp-flow class="genres">
+            <sp-item ng-model="t" ng-repeat="t in playlists">
+
+            </sp-item>
+        </sp-flow>
+        <hr/>
+        <br/>
+    </div>
+</div>
+<div class="container" section="artists" tab-content>
+    <div ng-show="artists.length > 0">
+        <sp-flow class="albums">
+            <sp-item ng-model="t" ng-repeat="t in artists">
+
+            </sp-item>
+        </sp-flow>
+        <hr/>
+        <br/>
+    </div>
+</div>
+<div class="container" section="shows" tab-content>
+    <div ng-show="shows.length > 0">
+        <sp-flow class="albums">
+            <sp-item ng-model="t" ng-repeat="t in hows">
+            </sp-item>
+        </sp-flow>
+        <hr/>
+        <br/>
+    </div>
+</div>
+<div class="container" section="curators" tab-content>
+    <div ng-show="curators.length > 0">
+        <sp-flow class="albums">
+            <sp-item ng-model="t" ng-repeat="t in curators">
+            </sp-item>
+        </sp-flow>
+        <hr/>
+        <br/>
+    </div>
+</div>

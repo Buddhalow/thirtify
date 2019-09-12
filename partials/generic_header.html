@@ -1,4 +1,4 @@
-<div style="padding-top: 25pt; z-index: 10000; padding-top: 50pt" ng-if="$root.scrollY > 200" ng-style="{'padding': '50pt 0pt', 'transform': 'translate(0, ' + $root.scrollY + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
+<div style="padding-top: 25pt; z-index: 1000000; padding-top: 50pt" ng-if="$root.scrollY > 200" ng-style="{'padding': '50pt 0pt', 'transform': 'translate(0, ' + $root.scrollY + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
 
     <div class="container" style=" display: flex; flex-direction: row">
         <div ng-show="data.images && data.images.length > 0 && data.type != 'author'" style="display: flex; flex-direction: row; justify-content: center; align-items: center; flex: 0 0 210px; ">
@@ -20,16 +20,15 @@
     </div>
 </div>
 <div ng-if="$root.scrollY < 200 || !$root.scrollY" style="height: 200pt" ng-style="{'transform': 'translate(0, ' + ($root.scrollY > 200 ? $root.scrollY - 200 : 0) + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
-    <div ng-if="isWide" class="header-bg" ng-style="{ 'background-position': '0pt ' + ($root.scrollY * 0.9) + 'px', opacity: (1 - ($root.scrollY / 200)), 'position': 'absolute', 'left': 0, 'top': 0, 'width': '100%', height: '300pt', 'mask-image': 'linear-gradient(to bottom, black 20%, transparent)', 'padding-top': '120pt', 'padding-bottom': '50pt', 'background-size': 'cover', 'background-image': 'url(' + (data.images && data.images.length > 0 ? data.images[0].url  : '') + ')'}">
 
-    </div>
     <div  style="left: 0pt; top: 0pt; position: absolute; width: 100%">
         <div class="container">
-            <header style="margin-bottom: 12pt; width: 100%;  display: flex; flex-direction: row; align-items: flex-end" ng-if="!isWide">
+
+            <header ng-if="!isWide" style="margin-bottom: 12pt; width: 100%;">
                 <div ng-show="data.images && data.images.length > 0 && data.type != 'author'" style="margin-right: 12pt">
-                    <img src="{{data.images[0].url}}" width="128" height="128" />
+                    <img src="{{data.images[0].url}}" width="128" ng-style="{'border-radius': isRound ? '100%' : '0'}" height="128" />
                 </div>
-                <div style="display: flex; flex: 1; flex-direction: column; align-items: stretch; justify-content: flex-end;  height: 100%">
+                <div class="header-main">
                     <h4 ng-show="data.collaborative" style="text-transform: uppercase;">{{'collaborative-playlist' | locale}}</h4>
                     <h4 ng-hide="data.collaborative" style="text-transform: uppercase;">{{data.type | locale}}</h4>
                     <h1 style="padding-top: 2pt;">{{data.name}}</h1>
@@ -44,19 +43,20 @@
                         <a ng-if="isPlayable" ng-click="playall()" class="button green">PLAY ALL</a>
                         <a ng-if="isFollowable" ng-if="username !== profileUsername" ng-click="follow(isFollowing)" ng-mouseover="isFollowHovered=true" ng-mouseout="isFollowHovered=false" class="button button-add"><span>{{ isFollowing ? (isFollowHovered ? 'UNFOLLOW' : 'FOLLOWING') : 'FOLLOW' }}</span></a>
                         <div ng-if="isFollowable" class="follower-count" style="float: right">{{data.followers.total | number}} {{'followers' | locale}}</div>
-                        <div ng-transclude="toolbar" style="display: flex; flex-direction: row"></div>
+
                     </div>
+                    <div ng-transclude="toolbar" style="display: flex; flex-direction: row"></div>
+
                     <track-announcement ng-if="data.announcement" ng-model="data.announcement" style="width: 100%; display: flex; align-items: center; justify-content: center; padding: 56pt">
 
                     </track-announcement>
                 </div>
             </header>
-            <header ng-style="{'position': 'absolute', 'left': 0, 'top': 0, 'width': '100%', height: '300pt', 'margin-bottom': '12pt', 'width': '100%',  'display': 'flex', 'flex-direction': 'column', 'justify-content': 'flex-end', 'align-items': 'center'}" ng-if="isWide">
+            <header ng-style="{'left': 0, 'top': 0, 'width': '100%', 'padding-top': '28pt',  'display': 'flex', 'flex-direction': 'column', 'justify-content': 'center', 'align-items': 'center'}" ng-if="isWide">
                 <h4 ng-hide="data.collaborative" style="text-transform: uppercase;">{{data.type | locale}}</h4>
                 <div ng-if="isFollowable" class="follower-count" style="float: right">{{data.followers.total | number}} {{'followers' | locale}}</div>
 
                 <h1 style="padding-top: 2pt;">{{data.name}}</h1>
-                <p>{{data.description}}</p>
                 <div class="buttons" style="display: none">
                     <a ng-if="isPlayable" ng-click="playall()" class="button green">PLAY ALL</a>
                     <a ng-if="isFollowable" ng-if="username !== profileUsername" ng-click="follow(isFollowing)" ng-mouseover="isFollowHovered=true" ng-mouseout="isFollowHovered=false" class="button button-add"><span>{{ isFollowing ? (isFollowHovered ? 'UNFOLLOW' : 'FOLLOWING') : 'FOLLOW' }}</span></a>
@@ -81,5 +81,4 @@
 </div>
 
 <div class="container">
-    <div ng-transclude="toolbar" style="display: flex; flex-direction: row"></div>
 </div>

@@ -29,13 +29,13 @@
 			let img = document.createElement('img')
 			img.crossOrigin = "Anonymous";
 			img.src = $scope.data.images && $scope.data.images.length > 0 ? $scope.data.images[0].url : ''
-			/*img.addEventListener('load', function() {
+			img.addEventListener('load', function() {
 	   			var vibrant = new Vibrant(img);
 
 	   			var swatches = vibrant.swatches()
 	   			let i = 0;
 
-			    for (var swatch in swatches) {
+			    for (let swatch in swatches) {
 			        if (i == 1) {
 			        	if (swatches.hasOwnProperty(swatch) && swatches[swatch]) {
 				        	let hex = swatches[swatch].getHex()
@@ -48,7 +48,7 @@
 				    }
 			        i++
 			    }
-			});*/
+			});
 		});
 		promise = $scope.username ? API.getPlaylistTracks($scope.username, $scope.playlist) : API.getTracksInPlaylistById($scope.playlist)
 
