@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee62c9af-9dbd-437b-8ad8-d3b12118206c" name="Default Changelist" comment="Disabled our 'self promotion' announcement">
-      <change afterPath="$PROJECT_DIR$/controllers/library.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/partials/library.html" afterDir="false" />
+    <list default="true" id="ee62c9af-9dbd-437b-8ad8-d3b12118206c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/curator.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/curator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/playlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/directives/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/directives/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/browse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/directives/tabbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/directives/tabbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/curator.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/curator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/browse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/generic_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/generic_header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/library.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/library.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/playlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/playlist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
@@ -83,7 +80,10 @@
       <workItem from="1568217037584" duration="523000" />
       <workItem from="1568256646857" duration="1216000" />
       <workItem from="1568262797440" duration="10000" />
-      <workItem from="1568296321624" duration="2874000" />
+      <workItem from="1568296321624" duration="3092000" />
+      <workItem from="1568391017657" duration="3375000" />
+      <workItem from="1568719486640" duration="2000" />
+      <workItem from="1574268964602" duration="693000" />
     </task>
     <task id="LOCAL−00001" summary="Added curator page">
       <created>1568211492281</created>
@@ -121,7 +121,13 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1568217078602</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Polishing design">
+      <created>1568300738788</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1568300738788</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +152,7 @@
     <MESSAGE value="Hide non funcational items" />
     <MESSAGE value="Fixed some layout stuff" />
     <MESSAGE value="Disabled our 'self promotion' announcement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disabled our 'self promotion' announcement" />
+    <MESSAGE value="Polishing design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Polishing design" />
   </component>
 </project>

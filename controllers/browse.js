@@ -12,7 +12,7 @@
     }
     $scope.data = {
       name: 'Browse',
-    /*  announcement: {
+      /*announcement: {
         "collaborative": false,
         "description": "This is Dr. Sounds. The essential tracks, all in one playlist.",
         "external_urls": {
@@ -46,6 +46,8 @@
         "snapshot_id": "MjYwOTEzNTcsMDAwMDAwMDAzMGUyNzVjMDQxMWQ0MDEzY2E1Zjc2ZDdhYmU5Mzc3NA=="
       }*/
     }
+    document.documentElement.style.setProperty('--vibrant-color', '#004488');
+
 
     /**
      * Returns an ISO string containing the local time for the user,

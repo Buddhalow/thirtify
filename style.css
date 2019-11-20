@@ -4,7 +4,7 @@
 	--strong-color: #fff;
 	--primary-color: #1db954;
 	--vibrant-color: rgba(255,255,255,0.15);
-	--sidebar-width: 420px;
+	--sidebar-width: 220px;
 	--topgroup-height: 0px;
 }
 
@@ -396,6 +396,7 @@ generic-header {
 	display: block;
 }
 .mainview {
+	transition: background-image 0.5s;
 	position: absolute;
 	left: var(--sidebar-width);
 	top: 0px;
@@ -673,6 +674,11 @@ ul.albums, ul.playlists, ul.genres {
 	padding: 0;
 	border: 0;
 	clear: both;
+}
+.menuview {
+}
+tab-bar {
+	justify-content: center;
 }
 tabbar-tab {
 	text-transform: uppercase;

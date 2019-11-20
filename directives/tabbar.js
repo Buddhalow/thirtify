@@ -10,7 +10,7 @@
                 var linkFunction = function($scope, element, attributes) {
 
                     $rootScope.$on('scroll', function () {
-                        if ($rootScope.scrollY > 200 ? $rootScope.scrollY - 200 : 0) {
+                        /*if ($rootScope.scrollY > 200 ? $rootScope.scrollY - 200 : 0) {
                             element.addClass('sticky-tabbar');
                             element.css({
                                 transform: 'translate(0px, ' + ($rootScope.scrollY - 200) + 'px)'
@@ -21,7 +21,7 @@
                             element.css({
                                 transform: 'translate(0pt, 0px)'
                             });
-                        }
+                        }*/
                     })
                 }
                 return linkFunction;

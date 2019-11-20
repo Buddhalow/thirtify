@@ -1,4 +1,4 @@
-<div style="padding-top: 25pt; z-index: 1000000; padding-top: 50pt" ng-if="$root.scrollY > 200" ng-style="{'padding': '50pt 0pt', 'transform': 'translate(0, ' + $root.scrollY + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
+<div style="padding-top: 25pt; z-index: 1000000; padding-top: 50pt" ng-if="false" ng-style="{'padding': '50pt 0pt', 'transform': 'translate(0, ' + $root.scrollY + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
 
     <div class="container" style=" display: flex; flex-direction: row">
         <div ng-show="data.images && data.images.length > 0 && data.type != 'author'" style="display: flex; flex-direction: row; justify-content: center; align-items: center; flex: 0 0 210px; ">
@@ -19,7 +19,7 @@
         <div ng-transclude="right"></div>
     </div>
 </div>
-<div ng-if="$root.scrollY < 200 || !$root.scrollY" style="height: 200pt" ng-style="{'transform': 'translate(0, ' + ($root.scrollY > 200 ? $root.scrollY - 200 : 0) + 'px)', 'z-index': ($root.scrollY > 200 ? 10000 : 0)}" ng-class="{'sticky-header': $root.scrollY > 200}">
+<div style="height: 200pt" >
 
     <div  style="left: 0pt; top: 0pt; position: absolute; width: 100%">
         <div class="container">
