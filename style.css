@@ -678,7 +678,6 @@ ul.albums, ul.playlists, ul.genres {
 .menuview {
 }
 tab-bar {
-	justify-content: center;
 }
 tabbar-tab {
 	text-transform: uppercase;
@@ -822,14 +821,14 @@ header {
 	header {
 		padding-top: 28pt;
 		flex-direction: column;
-		align-items: center;
+	/*	align-items: center;*/
 	}
 
 	.header-main {
-		align-items: center;
+	/*	align-items: center;*/
 	}
 
 	tab-bar {
-		justify-content: center;
+	/*	justify-content: center; */
 	}
 }

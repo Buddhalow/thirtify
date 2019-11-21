@@ -46,7 +46,7 @@
         "snapshot_id": "MjYwOTEzNTcsMDAwMDAwMDAzMGUyNzVjMDQxMWQ0MDEzY2E1Zjc2ZDdhYmU5Mzc3NA=="
       }*/
     }
-    document.documentElement.style.setProperty('--vibrant-color', '#004488');
+    // document.documentElement.style.setProperty('--vibrant-color', '#003355');
 
 
     /**
@@ -76,6 +76,7 @@
 
     Thirtify.getCurators().then(function (result) {
       $scope.curators = result.curators.items;
+      $scope.$apply();
     })
 
     API.getBrowseCategories().then(function(results) {

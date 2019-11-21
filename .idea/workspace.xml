@@ -4,13 +4,12 @@
     <list default="true" id="ee62c9af-9dbd-437b-8ad8-d3b12118206c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/browse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/directives/tabbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/directives/tabbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/curator.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/curator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/library.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/library.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/browse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/curator.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/curator.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/generic_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/generic_header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/library.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/library.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/playlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/playlist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,7 +82,8 @@
       <workItem from="1568296321624" duration="3092000" />
       <workItem from="1568391017657" duration="3375000" />
       <workItem from="1568719486640" duration="2000" />
-      <workItem from="1574268964602" duration="693000" />
+      <workItem from="1574268964602" duration="708000" />
+      <workItem from="1574315926108" duration="1238000" />
     </task>
     <task id="LOCAL−00001" summary="Added curator page">
       <created>1568211492281</created>
@@ -127,7 +127,13 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1568300738788</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Polishing design">
+      <created>1574278642348</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1574278642348</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

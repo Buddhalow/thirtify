@@ -64,6 +64,7 @@
 
         API.getPlaylists(Auth.getUsername()).then(function(results) {
             $scope.playlists = results.playlists.items.map(i => ({...i, type: 'playlist', href: '/playlists/' + i.id}));
+            debugger;
             $scope.message = results.message;
         });
 

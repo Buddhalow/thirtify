@@ -37,7 +37,7 @@
                 img.crossOrigin = "Anonymous";
                 img.src = $scope.data.images && $scope.data.images.length > 0 ? $scope.data.images[0].url : ''
                 img.addEventListener('load', function() {
-                    var vibrant = new Vibrant(img);
+                /*    var vibrant = new Vibrant(img);
 
                     var swatches = vibrant.swatches()
                     let i = 0;
@@ -54,7 +54,7 @@
                             }
                         }
                         i++
-                    }
+                    }*/
                 });
         }).catch(function (reasons) {
             console.log("got error", reasons);

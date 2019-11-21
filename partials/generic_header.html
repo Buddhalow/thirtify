@@ -52,7 +52,7 @@
                     </track-announcement>
                 </div>
             </header>
-            <header ng-style="{'left': 0, 'top': 0, 'width': '100%', 'padding-top': '28pt',  'display': 'flex', 'flex-direction': 'column', 'justify-content': 'center', 'align-items': 'center'}" ng-if="isWide">
+            <header ng-style="{'left': 0, 'top': 0, 'width': '100%', 'padding-top': '28pt',  'display': 'flex', 'flex-direction': 'column', 'justify-content': 'center', 'align-items': 'flex-start'}" ng-if="isWide">
                 <h4 ng-hide="data.collaborative" style="text-transform: uppercase;">{{data.type | locale}}</h4>
                 <div ng-if="isFollowable" class="follower-count" style="float: right">{{data.followers.total | number}} {{'followers' | locale}}</div>
 
