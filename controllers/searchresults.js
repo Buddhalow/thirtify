@@ -1,7 +1,7 @@
 (function() {
 
 	var module = angular.module('PlayerApp');
-
+	var isSearching = false;
 	module.controller('SearchResultsController', function($scope, API, $location, PlayQueue, $routeParams) {
 		$scope.query = $location.search().q || '';
 		$scope.type = $location.search().type || null;
@@ -10,6 +10,9 @@
 			type: 'search',
 			name: 'Search results for \'' + $scope.query + '\''
 		}
+		$scope.hasResults = false;
+
+
 		API.getSearchResults($scope.query).then(function(results) {
 			console.log('got search results', results);
 			if ($scope.type) {
@@ -25,6 +28,7 @@
 			$scope.albums = results.albums.items.slice(0, 5);
 			$scope.shows = results.shows.items.slice(0, 5);
 			$scope.episodes = results.episodes.items.slice(0, 5);
+			$scope.hasResults = true;
 
 			// find out if they are in the user's collection
 			var ids = $scope.tracks.map(function(track) {

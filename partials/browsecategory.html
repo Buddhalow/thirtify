@@ -2,18 +2,18 @@
 <div class="container" ng-if="playlists.length > 0">
   <h3>Top Playlists</h3>
   <div ng-show="playlists.length > 0">
-    <sp-flow class="playlists">
+    <div class="playlists">
       <sp-item ng-model="t" ng-repeat="t in playlists">
 
       </sp-item>
-    </sp-flow>
+    </div>
   </div>
 </div>
 
 <div class="container" ng-if="shows.length > 0">
   <h3>Shows</h3>
   <div ng-show="shows.length > 0">
-    <sp-flow class="shows">
+    <div class="shows">
       <sp-item ng-model="t" ng-repeat="t in shows">
 
       </sp-item>

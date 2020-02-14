@@ -1,5 +1,6 @@
 <html ng-app="PlayerApp">
 	<head>
+		<link rel="manifest" href="/manifest.json">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-31B2N133JQ"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
@@ -17,7 +18,7 @@
 
 			gtag('config', 'UA-147672765-1');
 		</script>
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Thirtify (Pre-alpha)</title>
 		<base href="/">
 		<link rel="stylesheet" href="style.css" />
@@ -52,6 +53,7 @@
 		<script src="directives/focusme.js"></script>
 		<script src="directives/tabbar.js"></script>
 		<script src="directives/header.js"></script>
+		<script src="directives/flow.js"></script>
 		<script src="directives/tabcontent.js"></script>
 		<script src="directives/tab.js"></script>
 		<script src="directives/recommendations.js"></script>
@@ -65,6 +67,7 @@
 		<script src="controllers/library.js"></script>
 		<script src="controllers/chart.js"></script>
 		<script src="controllers/year.js"></script>
+		<script src="controllers/search.js"></script>
 		<script src="controllers/country.js"></script>
 		<script src="controllers/label.js"></script>
 		<script src="controllers/track.js"></script>
@@ -89,8 +92,8 @@
 	</head>
 	<body ng-controller="AppController">
 		<div class="fullview playerview" ng-show="showplayer">
-			<div ng-controller="PlayerController">
-				<div class="topgroup ">
+			<div ng-controller="PlayerController" class="main">
+				<div class="topgroup " style="display: none">
 					<div class="controller ">
 						<div class="buttons">
 							<button style="padding: 8pt" onclick="history.back()">&lt;</button>
@@ -116,6 +119,7 @@
 							<b><a href="/">MAIN</a></b>
 							<ul class="menuitems">
 								<li><a href="/" ng-class="getClass('/')">Browse</a></li>
+								<li><a href="/search" ng-class="getClass('/search')">Search</a></li>
 							</ul>
 							<b><a href="/me">YOUR MUSIC</a></b>
 							<ul class="menuitems">
@@ -158,7 +162,12 @@
 						</div>
 					</div>
 					<div class="mainview" scroll>
-						<div ng-view></div>
+						<div ng-controller="SearchController"  class="search">
+								<form novalidate ng-submit="loadsearch()" >
+									<input type="search" style="border: none; background: none;" ng-model="query" placeholder="Search..." />
+								</form>
+						</div>
+						<div ng-view style="flex: 1"></div>
 					</div>
 					<div class="rightgroup" style="display: none"></div>
 				</div>

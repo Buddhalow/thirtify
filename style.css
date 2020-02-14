@@ -136,7 +136,6 @@ hr {
 }
 .topgroup {
 	overflow: visible;
-	position: absolute;
 	left: 0px;
 	top: 0px;
 	height: var(--topgroup-height);
@@ -201,9 +200,6 @@ sp-item {
 item {
 	padding: 10pt;
 }
-sp-item {
-	width: 20%;
-}
 h3, summary {
 	font-weight: bold;
 	color: white;
@@ -229,48 +225,45 @@ sp-entry {
 }
 
 .midgroup {
-	position: absolute;
-	left: 0px;
-	top: var(--topgroup-height);
-	bottom: 40px;
+	display: flex;
 	width: 100%;
-	overflow: hidden;
+	overflow: scroll;
+	flex: 1;
+	flex-direction: row;
 }
 
 .bottomgroup {
-	position: absolute;
 	box-sizing: border-box;
-	left: 0px;
-	width: 100%;
 	height: 40px;
-	bottom: 0px;
 	padding: 20pt;
 	align-items: center;
+	display: flex;
+	flex-direction: row;
 	background-color: #222326;
 	border-top: 1px solid #393b40;
 	overflow: hidden;
 }
 
 .bottomgroup .leftcontrols {
-	position: absolute;
+	display: flex;
+	flex-direction: row;
 	left: 10px;
 	top: 12px;
 	width: 400px;
 	padding: 0px;
 }
 
+
 .bottomgroup .leftcontrols .prevbutton {
-	position: absolute;
+
 	left: 5px;
 }
 
 .bottomgroup .leftcontrols .playbutton {
-	position: absolute;
 	left: 40px;
 }
 
 .bottomgroup .leftcontrols .nextbutton {
-	position: absolute;
 	left: 75px;
 }
 
@@ -281,7 +274,6 @@ sp-entry {
 }
 
 .bottomgroup .leftcontrols .volume {
-	position: absolute;
 	left: 120px;
 	top: 7px;
 	width: 80px;
@@ -292,15 +284,16 @@ sp-entry {
 }
 
 .bottomgroup .seekcontrols {
-	position: absolute;
 	top: 8px;
 	left: 220px;
 	right: 0px;
 	padding: 0px;
+	display: flex;
+	flex-direction: row;
+	flex: 1;
 }
 
 .bottomgroup .seekcontrols .slider {
-	position: absolute;
 	top: 12px;
 	left: 60px;
 	right: 60px;
@@ -312,14 +305,12 @@ sp-entry {
 
 .bottomgroup .seekcontrols div.progress {
 	width: 60px;
-	position: absolute;
 	top: 3px;
 	left: 0px;
 	text-align: center;
 }
 
 .bottomgroup .seekcontrols div.duration {
-	position: absolute;
 	right: 0px;
 	top: 3px;
 	width: 60px;
@@ -327,7 +318,6 @@ sp-entry {
 }
 
 .bottomgroup .rightcontrols {
-	position: absolute;
 	right: 0px;
 	top: 12px;
 	text-align: right;
@@ -337,7 +327,6 @@ sp-entry {
 
 .menuview {
 	overflow: hidden;
-	position: absolute;
 	left: 0px;
 	top: 0px;
 	width: var(--sidebar-width);
@@ -345,7 +334,6 @@ sp-entry {
 }
 
 .menuview .list {
-	position: absolute;
 	left: 0px;
 	top: 0px;
 	width: 100%;
@@ -359,7 +347,6 @@ sp-entry {
 }
 
 .menuview .preview {
-	position: absolute;
 	left: 0px;
 	bottom: 0px;
 	height: 260px;
@@ -396,8 +383,10 @@ generic-header {
 	display: block;
 }
 .mainview {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 	transition: background-image 0.5s;
-	position: absolute;
 	left: var(--sidebar-width);
 	top: 0px;
 	right: 0px;
@@ -516,7 +505,6 @@ a.button.button-add {
 
 .pop-meter-background, .pop-meter-overlay {
 	width: 100%;
-	position: absolute;
 	top: -1px;
 	height: 9px;
 	overflow-x: hidden;
@@ -530,7 +518,7 @@ a.button.button-add {
 	-ms-transform: translate(0,.5px);
 	-o-transform: translate(0,.5px);
 	transform: translate(0,.5px);
-	position: absolute;
+
 	left: -4px;
 	width: 2px;
 	height: 8px;
@@ -781,6 +769,16 @@ button {
 	background-color: #323438;
 }
 
+.main {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+}
+
 responsive-cover, .button {
 	transition: transform 0.5;
 }
@@ -803,10 +801,6 @@ responsive-cover:active, .button:active {
 }
 .list {
 	padding: 20pt !important;
-}
-.container {
-	width: 70% !important;
-
 }
 ::-webkit-scrollbar {
 	background: black;
@@ -831,4 +825,33 @@ header {
 	tab-bar {
 	/*	justify-content: center; */
 	}
+	:root {
+		--sidebar-width: 0;
+	}
+	.topgroup {
+		display: none;
+	}
+	.prevbutton, .nextbutton, .volume, .seekcontrols, .rightcontrols, .slider, .seekcontrols {
+		display: none;
+	}
+	.container {
+		padding: 0 !important;
+		width: 100%;
+		margin: 0 !important;
+	}
+	tab-bar {
+		display: none;
+	}
+}
+.search input {
+	color: var(--color);
+}
+.search {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	background: rgba(255, 255, 255, .1);
+	color: var(--color);
+	border: none;
+	padding: 20pt;
 }
