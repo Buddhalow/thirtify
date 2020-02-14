@@ -63,6 +63,13 @@
 				});
 			}
 		};
+		API.getBrowseCategories().then(function(results) {
+			$scope.genresMoods = results.categories.items;
+			$scope.genresMoods = $scope.genresMoods.map(g => ({
+				...g,
+				type: 'category'
+			}));
+		});
 	});
 
 })();

@@ -9,30 +9,19 @@
 			<small>Episode of <a ng-href="/show/{{data.show.id}}">{{data.show.name}}</a> by <a ng-href="/publisher/{{data.show.publisher}}">{{data.show.publisher}}</a></small>
 			<p>{{data.description}}</p>
 
-		<table class="tracks">
-			<thead>
-				<th></th>
-				<th>{{'episode' | locale}}</th>
-				<th></th>
-				<th>{{'time' | locale}}</th>
-				<th>{{'published' | locale}}</th>
-			</thead>
-			<tbody>
-				<tr ng-dblclick="play(t.uri)" ng-if="(data.id === t.id) || showAll" ng-repeat="t in tracks" ng-class="{ playing: (t.uri == currenttrack), sidekick: data.id !== t.id }">
-					<td>
-						<button ng-click="toggleFromYourMusic($index)"> {{ t.inYourMusic ? '-' : '+' }} </button>
-					</td>
-					<td class="name" width="30%">
-						<a ng-click="play(t.uri)">{{t.name}}</a>
-					</td>
-					<td width="30%">
-						<progress min="0" max="100" value="50" style="width: 100%"></progress>
-					</td>
-					<td>{{t.duration_ms | displaytime}}</td>
-					<td>{{t.release_date | timeago}}</td>
-				</tr>
-			</tbody>
-		</table>
+			<div class="entry" ng-dblclick="play(t.uri)"  ng-class="{ playing: (t.episode.uri == currenttrack) }" ng-context-menu="menuOptionsPlaylistTrack(t, $index)">
+
+				<div>
+					<img height="64" src="{{data.images[0].url}}">
+
+				</div>
+				<div class="name" ng-dblclick="play(data.uri)">
+					<a style="font-size: 12pt" href="/episode/{{data.id}}">{{data.name}}</a>
+					<span style="opacity: 0.8;">{{data.release_date | timeago}}</span>
+
+					<span style="opacity: 0.8;">{{data.duration_ms | displaytime}}</span>
+				</div>
+			</div>
 		<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show all tracks</a>
 		<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show only current track</a>
 		</div>

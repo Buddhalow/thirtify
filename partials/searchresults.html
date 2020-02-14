@@ -1,3 +1,17 @@
+<div ng-if="!hasResults">
+
+	<div class="container">
+		<div ng-show="genresMoods.length > 0">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" ng-repeat="t in genresMoods" style="padding: 15pt">
+					<a ng-href="/category/{{t.id}}"><img width="100%" ng-src="{{t.icons[0].url}}"></a>
+				</div>
+			</div>
+			<hr/>
+			<br/>
+		</div>
+	</div>
+</div>
 <div ng-if="hasResults">
 <generic-header ng-model="data"></generic-header>
 <div class="container" ng-show="type">

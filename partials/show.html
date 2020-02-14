@@ -1,8 +1,13 @@
 <generic-header ng-model="data" followable="true" playable="true"></generic-header>
-
+<div style="height: 80pt"></div>
 <div class="container">
-	<h3 style="text-transform: uppercase">{{'about' | locale}}</h3>
-	<p>{{data.showDescription}}</p>
+	<div class="row">
+		<div class="col">
+			<h3>About show</h3>
+
+			<p>{{data.showDescription}}</p>
+		</div>
+	</div>
 </div>
 <div class="container">
 	<div class="row">
@@ -12,31 +17,27 @@
 	</div>
 </div>
 <div class="container">
-	<table class="tracks episodes">
-		<thead>
-			<th></th>
-			<th>{{'episode' | locale}}</th>
-			<th>{{'listened' | locale}}</th>
-			<th>{{'duration' | locale}}</th>
-		</thead>
-		<tbody>
-			<tr ng-repeat="t in episodes | filter:q" ng-dblclick="play(t.uri)"  ng-class="{ playing: (t.episode.uri == currenttrack) }" ng-context-menu="menuOptionsPlaylistTrack(t, $index)">
-				
-				<td>
-					<img height="64" src="{{t.images[0].url}}">
-					
-				</td>
-				<td ng-dblclick="play(t.uri)">
-					<a href="/episode/{{t.id}}">{{t.name}}</a>
-					
-					<p style="opacity: 0.9">{{t.description.substr(0, 350)}}...</p>
-				</td>
-				<td width="130pt"></td>
-				<td width="130pt"><span style="opacity: 0.8;">{{t.release_date | timeago}}</span></td>
-				<td width="130pt"><span style="opacity: 0.8;">{{t.duration_ms | displaytime}}</span></td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="row">
+		<div class="col">
+			<div style="padding: 15pt" ng-repeat="t in episodes | filter:q">
+				<div class="entry"  ng-dblclick="play(t.uri)"  ng-class="{ playing: (t.episode.uri == currenttrack) }" ng-context-menu="menuOptionsPlaylistTrack(t, $index)">
+
+					<div>
+						<img height="64" src="{{t.images[0].url}}">
+
+					</div>
+					<div class="name" ng-dblclick="play(t.uri)">
+						<a style="font-size: 12pt" href="/episode/{{t.id}}">{{t.name}}</a>
+						<span style="opacity: 0.8;">{{t.release_date | timeago}}</span>
+
+						<p style="opacity: 0.9">{{t.description.substr(0, 350)}}...</p>
+						<span style="opacity: 0.8;">{{t.duration_ms | displaytime}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	<br/>
 
 	<hr/>
