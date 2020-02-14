@@ -5,5 +5,5 @@
 <span ng-if="data.artists">
     <span ng-repeat="a in data.artists">{{a.name}}</span>
 </span>
-<p>{{data.description.substr(0, 120)}}</p>
+<p style="display: block; line-break: auto; word-break: break-all" ng-bind-html="data.description.substr(0, 120)"></p>
 </a>

@@ -10,7 +10,13 @@
       $scope.data = result
     });
     API.getBrowseCategoryPlaylists($routeParams.categoryid, Auth.getUserCountry()).then(function(results) {
-      $scope.playlists = results.playlists.items;
+      $scope.playlists = results.playlists.items.map(item => ({
+        ...item,
+        type: 'playlist',
+        uri: 'spotify:playlist:' + item.id,
+        href: '/playlist/' + item.id
+      }));
+
     });
   });
 

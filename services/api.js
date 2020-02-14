@@ -7,6 +7,8 @@
 
 	var module = angular.module('PlayerApp');
 
+
+
 	module.factory('API', function(Auth, $q, $http) {
 
 		var baseUrl = 'https://api.spotify.com/v1';
@@ -833,6 +835,72 @@
 				});
 				return ret.promise;
 			},
+			getPlaylistsFeaturingArtist(name, exclude, offset, limit) {
+				return new Promise((resolve, reject) => {
+					var q = 'name=' + name + '&exclude=' + exclude + '&offset=' + offset + '&limit=' + limit;
+
+					if (cache.isCached(q)) {
+						var result = cache.load(q);
+						resolve(result);
+						return;
+					}
+
+					var promises = [0, 1,2,3].map(i => new Promise(
+						(resolve2, reject2) => {
+							offset = parseInt(offset);
+							searchEngine.search('"' + name + '"', 'open.spotify.com/user', 'items(title,link)', '015106568197926965801%3Aif4ytykb8ws', exclude, offset + (i * limit), limit).then(result => {
+								var data = {};
+								try {
+									data.objects = result.items.map((o) => {
+										var uri = 'spotify:' + o.link.split('/').slice(3).join(':');
+										return {
+											id: uri.split(':')[4],
+											uri,
+											name: o.title,
+											type: 'playlist',
+											user: {
+												name: uri.split(':')[2],
+												id: uri.split(':')[2],
+												uri: 'spotify:user:' + uri.split(':')[2],
+												type: 'user'
+											}
+										};
+									});
+									data.service = result.service;
+									resolve2(data);
+								} catch (e) {
+									// console.log(e);
+									reject2(e);
+								}
+							}, err => {
+								reject2(err);
+							});
+						}
+					));
+					Promise.all(promises).then(
+						results => {
+							var data = {
+								objects: [],
+								service: {
+									id: 'google',
+									name: 'Google',
+									type: 'service'
+								}
+							};
+							results.map(r => {
+								r.objects.map(o => {
+									data.objects.push(o);
+								})
+							});
+							cache.save(q, data);
+							resolve(data);
+						}
+					).catch(errors => {
+						// console.log(errors);
+						reject(errors);
+					});;
+				});
+			}
 		};
 	});
 

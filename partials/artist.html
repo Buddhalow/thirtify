@@ -1,14 +1,16 @@
 
 <generic-header ng-model="data" followable="true" wide="true" playable="true"></generic-header>
-
+<div class="container">
   <tab-bar>
     <tabbar-tab section="overview" label="Overview"></tabbar-tab>
     <tabbar-tab section="artists" label="Fan also like"></tabbar-tab>
+	  <tabbar-tab section="about" label="About"></tabbar-tab>
   </tab-bar>
+</div>
 <section tab-content section="overview" class="container">
 	<div class="row">
 		<div class="col-md-8">
-			<h3>Latest release</h3>
+			<h3>{{ 'latest-release' | locale}}</h3>
 			<a  ng-model="release" ng-if="release">
 				<sp-entry>
 					<img src="{{release.images[0].url}}" width="96" height="96"/>
@@ -25,7 +27,6 @@
 					<th>#</th>
 					<th></th>
 					<th>{{ 'songs' | locale }}</th>
-					<th></th>
 				</thead>
 				<tbody>
 
@@ -35,8 +36,8 @@
 						<td>
 							<button ng-click="toggleFromYourMusic($index)" style="opacity: 0.5"> {{ t.inYourMusic ? '-' : '+' }} </button>
 						</td>
-						<td><a ng-click="playtoptrack(t.uri)">{{t.name}}</a></td>
-						<td style="text-align: right">??? ???</td>
+						<td>{{t.name}}</td>
+
 					</tr>
 				</tbody>
 			</table>
@@ -128,6 +129,21 @@
 			</sp-flow>
 			<hr/>
 			<br/>
+		</div>
+	</div>
+</section>
+<section tab-content section="about" class="container">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+
+			</div>
+			<div class="col-md-4">
+				<h3>{{ 'discovered-on' | lang}}</h3>
+				<sp-item ng-model="playlist" ng-repeat="playlist in playlists">
+
+				</sp-item>
+			</div>
 		</div>
 	</div>
 </section>
