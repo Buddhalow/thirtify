@@ -194,7 +194,7 @@
 						<div class="progress">{{ progress | displaytime }}</div>
 						<div class="duration">{{ duration | displaytime }}</div>
 						<div class="slider">
-							<input type="range" ng-model="progress" ng-change="changeprogress()" min="0" max="{{duration}}" />
+							<input type="range"   ng-value="progress" ng-change="changeprogress()" min="0" max="{{duration}}" />
 						</div>
 					</div>
 					<div class="rightcontrols">

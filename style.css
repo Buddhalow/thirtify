@@ -247,20 +247,14 @@ sp-entry {
 .bottomgroup .leftcontrols {
 	display: flex;
 	flex-direction: row;
-	left: 10px;
-	top: 12px;
-	width: 400px;
-	padding: 0px;
-}
+	}
 
 
 .bottomgroup .leftcontrols .prevbutton {
 
-	left: 5px;
 }
 
 .bottomgroup .leftcontrols .playbutton {
-	left: 40px;
 }
 
 .bottomgroup .leftcontrols .nextbutton {
@@ -294,9 +288,7 @@ sp-entry {
 }
 
 .bottomgroup .seekcontrols .slider {
-	top: 12px;
-	left: 60px;
-	right: 60px;
+	flex: 1;
 }
 
 .bottomgroup .seekcontrols input {
@@ -841,6 +833,43 @@ header {
 	}
 	tab-bar {
 		display: none;
+	}
+	thead {
+		display: none;
+	}
+	tbody {
+		flex-direction: column;
+		display: flex;
+	}
+	tr {
+		display: flex;
+		flex-direction: column;
+		border-top: 1pt solid rgba(255, 255, 255, .1);
+	}
+	tr:active {
+		opacity: 0.8;
+		transform: scale(0.99);
+	}
+	td {
+		border: none !important;
+	}
+	tr td {
+		display: none;
+		padding: 20pt !important;
+	}
+	tr td.name {
+		font-size: 15pt;
+		display: block;
+	}
+	tr td.artist {
+		font-size: 5pt;
+		display: block;
+	}
+	header {
+		align-items: center;
+	}
+	.container {
+		width: 100% !important;
 	}
 }
 .search input {

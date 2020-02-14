@@ -18,6 +18,7 @@
 			}
 			_progress = audiotag.currentTime * 1000.0;
 			$rootScope.$emit('trackprogress');
+			$rootScope.progress = _progress;
 			/*
 			if (_progress >= 4000) {
 				console.log('track stopped. end track', _track);
@@ -62,16 +63,18 @@
 				_playing = true;
 				_progress = 0;
 				var trackid = trackuri.split(':')[2];
+				API.getTrack(trackid).then(function (track) {
+					API.playTracks([trackuri]).then(function (trackdata) {
+						console.log('playback got track', trackdata);
 
-				API.playTracks([trackuri]).then(function(trackdata) {
-					console.log('playback got track', trackdata);
+						_trackdata = trackdata;
+						_progress = 0;
+						$rootScope.duration = track.duration_ms / 1000;
+						$rootScope.$emit('playerchanged');
+						$rootScope.$emit('trackprogress');
+						enableTick();
 
-					_trackdata = trackdata;
-					_progress = 0;
-					$rootScope.$emit('playerchanged');
-					$rootScope.$emit('trackprogress');
-					enableTick();
-					
+					});
 				});
 			},
 			stopPlaying: function() {

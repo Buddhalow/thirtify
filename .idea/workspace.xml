@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6db5d85d-02f5-4f6d-978a-a96bc9c55a4d" name="Default Changelist" comment="Working on Playlist API">
-      <change afterPath="$PROJECT_DIR$/controllers/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/partials/flow.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/partials/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serviceworker.js" afterDir="false" />
+    <list default="true" id="6db5d85d-02f5-4f6d-978a-a96bc9c55a4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/searchresults.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/searchresults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/directives/flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/directives/flow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/browsecategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/browsecategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/generic_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/generic_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/album.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/album.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/artist.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/artist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/playlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/playlist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/searchresults.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/searchresults.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/track.html" beforeDir="false" afterPath="$PROJECT_DIR$/partials/track.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/playback.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/playback.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +78,7 @@
       <workItem from="1568719486640" duration="2000" />
       <workItem from="1574268964602" duration="708000" />
       <workItem from="1574315926108" duration="1238000" />
-      <workItem from="1581686240125" duration="4187000" />
+      <workItem from="1581686240125" duration="6202000" />
     </task>
     <task id="LOCAL−00001" summary="Added curator page">
       <created>1568211492281</created>
@@ -139,7 +134,13 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1581674880133</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="Updated design">
+      <created>1581690435565</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1581690435565</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,24 +167,25 @@
     <MESSAGE value="Disabled our 'self promotion' announcement" />
     <MESSAGE value="Polishing design" />
     <MESSAGE value="Working on Playlist API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on Playlist API" />
+    <MESSAGE value="Updated design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated design" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="125" width="800" height="673" key="#Deployment" timestamp="1581672028688">
       <screen x="0" y="28" width="1600" height="872" />
     </state>
     <state x="395" y="125" width="800" height="673" key="#Deployment/0.28.1600.872@0.28.1600.872" timestamp="1581672028688" />
-    <state x="442" y="63" width="705" height="797" key="CommitChangelistDialog2" timestamp="1581687094485">
+    <state x="442" y="63" width="705" height="797" key="CommitChangelistDialog2" timestamp="1581690435424">
       <screen x="0" y="28" width="1600" height="872" />
     </state>
-    <state x="442" y="63" width="705" height="797" key="CommitChangelistDialog2/0.28.1600.872@0.28.1600.872" timestamp="1581687094485" />
-    <state x="395" y="188" width="800" height="547" key="Vcs.Push.Dialog.v2" timestamp="1581674881077">
+    <state x="442" y="63" width="705" height="797" key="CommitChangelistDialog2/0.28.1600.872@0.28.1600.872" timestamp="1581690435424" />
+    <state x="395" y="188" width="800" height="547" key="Vcs.Push.Dialog.v2" timestamp="1581690436466">
       <screen x="0" y="28" width="1600" height="872" />
     </state>
-    <state x="395" y="188" width="800" height="547" key="Vcs.Push.Dialog.v2/0.28.1600.872@0.28.1600.872" timestamp="1581674881077" />
-    <state x="512" y="208" width="575" height="512" key="find.popup" timestamp="1581672938396">
+    <state x="395" y="188" width="800" height="547" key="Vcs.Push.Dialog.v2/0.28.1600.872@0.28.1600.872" timestamp="1581690436466" />
+    <state x="512" y="208" width="575" height="512" key="find.popup" timestamp="1581690997223">
       <screen x="0" y="28" width="1600" height="872" />
     </state>
-    <state x="512" y="208" width="575" height="512" key="find.popup/0.28.1600.872@0.28.1600.872" timestamp="1581672938396" />
+    <state x="512" y="208" width="575" height="512" key="find.popup/0.28.1600.872@0.28.1600.872" timestamp="1581690997223" />
   </component>
 </project>

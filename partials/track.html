@@ -15,7 +15,7 @@
 					<button ng-click="toggleFromYourMusic($index)"> {{ t.inYourMusic ? '-' : '+' }} </button>
 				</td>
 				<td width="100%">
-					<a ng-click="play(t.uri)">{{t.name}}</a>
+					{{t.name}}
 				</td>
 				<td>{{t.duration_ms | displaytime}}</td>
 				<td>
