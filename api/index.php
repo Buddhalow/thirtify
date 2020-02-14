@@ -8,7 +8,7 @@ function searchGoogle($fields, $q, $site, $cx, $exclude, $offset, $limit)
     $result = file_get_contents($url);
     return json_decode($result, TRUE);
 }
-
+/*
 function getPlaylistsFeaturingRelease($name, $artist, $exclude, $offset, $limit)
 {
 
@@ -48,3 +48,83 @@ function getPlaylistsFeaturingRelease($name, $artist, $exclude, $offset, $limit)
         }
     }
 }
+*/
+function getCreatorData($id) {
+    $delimiter = "<script id=\"__NEXT_DATA__\" type=\"application/json\">";
+    $ender = "}</script>";
+    $html = file_get_contents("https://artists.spotify.com/songwriter/" . $id);
+
+    $datastart = strrpos($html, $delimiter) + strlen($delimiter);
+    $dataend = strrpos($html, $ender, $datastart);
+    $json = substr($html, $datastart, $dataend - $datastart) . "}";
+    $data = json_decode($json, TRUE);
+    return $data;
+}
+
+$resource = $_REQUEST['resource'];
+$sub_resource = $_REQUEST['sub_resource'];
+
+$q = $_REQUEST['q'];
+$id = $_REQUEST['id'];
+header('Content-type: application/json');
+if ($resource === 'creator') {
+    $creatorData = getCreatorData($id);
+    $creator = $creatorData['props']['pageProps']['writerProfile'];
+    if (!$sub_resource) {
+        $uri = $creator['writerInfo']['creatorUri'];
+        $uris = explode(':', $uri);
+        $id = $uris[2];
+        $creator = array(
+            'id' => $id,
+            'type' => 'creator',
+            'href' => '/creator/' . $id,
+            'name' => $creator['writerInfo']['name'],
+            'uri' => $creator['writerInfo']['creatorUri']
+        );
+        echo json_encode($creator, JSON_PRETTY_PRINT);
+    }
+    else if($sub_resource === 'track')
+    {
+        $result = array(
+            'objects' => array()
+        );
+        foreach($creator['recordings'] as $recording) {
+            $result['objects'][] = array(
+                'artist' => array(
+                    'name' => $recording['artistName'],
+                    'uri' => 'spotify:search:' . $recording['artistName'],
+                    'type' => 'artist'
+                ),
+                'name' => $recording['title'],
+                'album' => array(
+                    'name' => $recording['albumName'],
+                    'uri' => 'spotify:search:' . $recording['albumName'],
+                    'type' => 'album'
+                ),
+                'totalStreams '=> (int)$recording['totalStreams']
+            );
+        }
+        echo json_encode($result, JSON_PRETTY_PRINT);
+
+    }
+    else if($sub_resource === 'artist')
+    {
+        $result = array(
+            'objects' => array()
+        );
+        foreach($creator['relatedArtists'] as $artist) {
+            $ids = explode(':', $artist['uri']);
+            $id = $ids[2];
+            $result['objects'][] = array(
+                'name' => $artist['name'],
+                'href' => '/artist/' . $id,
+                'type' => 'artist',
+                'uri' => $artist['uri'],
+                'id' => $id
+            );
+        }
+        echo json_encode($result, JSON_PRETTY_PRINT);
+
+    }
+}
+

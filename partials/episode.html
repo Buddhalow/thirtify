@@ -1,53 +1,44 @@
-<generic-header ng-model="data" playable="true">
 
-</generic-header>
-<div class="container">
-	<div class="col-md-12">
-		<h3 >{{'description' | locale}}</h3>
-		<p>{{data.description}}</p>
+<div class="">
+	<div style="display: flex; flex-direction: column">
+		<div style="flex: 0 0 25%">
+			<img ng-src="{{data.images[0].url}}" width="100%">
+		</div>
+		<div style="display: flex; flex-direction: column; padding: 20pt">
+			<h1>{{data.name}}</h1>
+			<small>Episode of <a ng-href="/show/{{data.show.id}}">{{data.show.name}}</a> by <a ng-href="/publisher/{{data.show.publisher}}">{{data.show.publisher}}</a></small>
+			<p>{{data.description}}</p>
+
+		<table class="tracks">
+			<thead>
+				<th></th>
+				<th>{{'episode' | locale}}</th>
+				<th></th>
+				<th>{{'time' | locale}}</th>
+				<th>{{'published' | locale}}</th>
+			</thead>
+			<tbody>
+				<tr ng-dblclick="play(t.uri)" ng-if="(data.id === t.id) || showAll" ng-repeat="t in tracks" ng-class="{ playing: (t.uri == currenttrack), sidekick: data.id !== t.id }">
+					<td>
+						<button ng-click="toggleFromYourMusic($index)"> {{ t.inYourMusic ? '-' : '+' }} </button>
+					</td>
+					<td class="name" width="30%">
+						<a ng-click="play(t.uri)">{{t.name}}</a>
+					</td>
+					<td width="30%">
+						<progress min="0" max="100" value="50" style="width: 100%"></progress>
+					</td>
+					<td>{{t.duration_ms | displaytime}}</td>
+					<td>{{t.release_date | timeago}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show all tracks</a>
+		<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show only current track</a>
+		</div>
 	</div>
 </div>
-<div class="container">
-	<table class="tracks">
-		<thead>
-			<th></th>
-			<th>{{'episode' | locale}}</th>
-			<th></th>
-			<th>{{'time' | locale}}</th>
-			<th>{{'published' | locale}}</th>
-		</thead>
-		<tbody>
-			<tr ng-dblclick="play(t.uri)" ng-if="(data.id === t.id) || showAll" ng-repeat="t in tracks" ng-class="{ playing: (t.uri == currenttrack), sidekick: data.id !== t.id }">
-				<td>
-					<button ng-click="toggleFromYourMusic($index)"> {{ t.inYourMusic ? '-' : '+' }} </button>
-				</td>
-				<td width="30%">
-					<a ng-click="play(t.uri)">{{t.name}}</a>
-				</td>
-				<td width="30%">
-					<progress min="0" max="100" value="50" style="width: 100%"></progress>
-				</td>
-				<td>{{t.duration_ms | displaytime}}</td>
-				<td>{{t.release_date | timeago}}</td>
-			</tr>
-		</tbody>
-	</table>
-	<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show all tracks</a>
-	<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show only current track</a>
-</div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h3>{{'more-by' | locale:data.show.name}}</h3>
-			<sp-flow class="playlists">
-		      <sp-item ng-model="t" ng-repeat="t in data.show.episodes">
-
-		      </sp-item>
-		    </sp-flow>
- 		</div>
-  	</div>
-</div>
 <!--
 
 <p>(C) (P) info</p>

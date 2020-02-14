@@ -94,6 +94,10 @@
 				templateUrl: 'partials/album.html',
 				controller: 'AlbumController'
 			}).
+		when('/creators?/:creator', {
+			templateUrl: 'partials/creator.html',
+			controller: 'CreatorController'
+		}).
 			when('/search', {
 				templateUrl: 'partials/searchresults.html',
 				controller: 'SearchResultsController'

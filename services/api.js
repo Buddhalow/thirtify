@@ -106,7 +106,30 @@
 				});
 				return ret.promise;
 			},
-
+			getCreator: function (id) {
+				var ret = $q.defer();
+				$http.get('/api/index.php?resource=creator&id=' + encodeURIComponent(id), {
+					headers: {
+					//	'Authorization': 'Bearer ' + Auth.getAccessToken()
+					}
+				}).success(function(r) {
+					console.log('got creator', r);
+					ret.resolve(r);
+				});
+				return ret.promise;
+			},
+			getCreatorArtists: function (id) {
+				var ret = $q.defer();
+				$http.get('/api/index.php?resource=creator&id=' + encodeURIComponent(id) + '&sub_resource=artist', {
+					headers: {
+						//	'Authorization': 'Bearer ' + Auth.getAccessToken()
+					}
+				}).success(function(r) {
+					console.log('got creator', r);
+					ret.resolve(r);
+				});
+				return ret.promise;
+			},
 			containsUserTracks: function(ids) {
 				var ret = $q.defer();
 				$http.get(baseUrl + '/me/tracks/contains?ids=' + encodeURIComponent(ids.join(',')), {
