@@ -4,6 +4,6 @@
     </div>
     <div style="padding: 1.5pt; display: flex; flex-direction: column">
         <p>{{data.name}}</p>
-        <small>{{data.type.toUpperCase()}}</small>
+        <small>{{data.type ? data.type.toUpperCase() : ''}}</small>
     </div>
 </a>

@@ -95,7 +95,7 @@
 	<body ng-controller="AppController">
 		<div class="fullview playerview" ng-show="showplayer">
 			<div ng-controller="PlayerController" class="main">
-				<div class="topgroup " style="display: none">
+				<div class="topgroup hidden-xs visible-md">
 					<div class="controller ">
 						<div class="buttons">
 							<button style="padding: 8pt" onclick="history.back()">&lt;</button>
@@ -107,11 +107,10 @@
 							</form>
 						</div>
 						<div class="titlebox" style="flex: 1">
-							<a href="/home">THIRTIFY (Pre-alpha fork by Buddhalow)</a>
+							<a href="/home" style="display: none">THIRTIFY (Pre-alpha fork by Buddhalow)</a>
 						</div>
 						<div class="userbox">
-							Signed in as <b><a href="#/users/{{profileUsername}}">{{profileUsername}}</a></b>
-							<a ng-click="logout()">Log out</a>
+							<b><a href="#/users/{{profileUsername}}">{{profileUsername}}</a></b>
 						</div>
 					</div>
 				</div>
@@ -164,9 +163,15 @@
 						</div>
 					</div>
 					<div class="mainview" scroll>
-						<div ng-controller="SearchController"  class="search hidden-xs hidden-md visible-lg">
-								<form novalidate ng-submit="loadsearch()" >
-									<input type="search" style="border: none; background: none;" ng-model="query" placeholder="Search..." />
+						<div ng-controller="SearchController"  class="search hidden-xs hidden-md visible-lg" style="display: none; ">
+								<form novalidate ng-submit="loadsearch()" style="z-index: 119; display: flex; flex-direction: row; align-items" >
+									<div class="buttons">
+										<button style="padding: 8pt" onclick="history.back()">&lt;</button>
+										<button style="padding: 8pt" href="#" onclick="history.forward()">&gt;</button>
+									</div>
+									<div class="form-control bg-white">
+										<input type="search" style="border: none; background: none;" ng-model="query" placeholder="Search..." />
+									</div>
 								</form>
 						</div>
 						<div ng-view style="flex: 1"></div>

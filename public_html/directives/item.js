@@ -2,14 +2,14 @@
 
     var module = angular.module('PlayerApp');
 
-    module.directive('spEntry', function() {
+    module.directive('spItem', function() {
         return {
             restrict: 'E',
             scope: {
                 data: '=ngModel',
                 isRound: '=round'
             },
-            templateUrl: '/partials/entry.html'
+            templateUrl: '/partials/item.html'
         };
     });
 })();

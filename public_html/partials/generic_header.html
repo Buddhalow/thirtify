@@ -30,7 +30,7 @@
                 </div>
                 <div class="header-main">
                     <h4 ng-show="data.collaborative" style="text-transform: uppercase;">{{'collaborative-playlist' | locale}}</h4>
-                    <h4 ng-hide="data.collaborative" style="text-transform: uppercase;">{{data.type | locale}}</h4>
+                    <h4 ng-hide="data.collaborative" style="text-transform: uppercase;">{{data.type}}</h4>
                     <h1 style="padding-top: 2pt;">{{data.name}}</h1>
                     <p>{{data.description}}</p>
                     <p><span ng-if="data.authors" >{{'by' | locale}} <a ng-repeat="author in data.authors" href="/{{author.type}}s/{{author.id}}">{{author.name || author.id}}</a></span>
@@ -53,7 +53,7 @@
                 </div>
             </header>
             <header ng-style="{'left': 0, 'top': 0, 'width': '100%', 'padding-top': '28pt',  'display': 'flex', 'flex-direction': 'column', 'justify-content': 'center'}" ng-if="isWide">
-                <h4 ng-hide="data.collaborative" style="text-transform: uppercase;">{{data.type | locale}}</h4>
+                <h4 ng-hide="data.collaborative" style="text-transform: uppercase;">{{data.type}}</h4>
                 <div ng-if="isFollowable" class="follower-count" style="display: none; float: right">{{data.followers.total | number}} {{'followers' | locale}}</div>
 
                 <h1 style="padding-top: 2pt;">{{data.name}}</h1>

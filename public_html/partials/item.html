@@ -2,9 +2,9 @@
 <a ng-href="/{{data.type}}/{{data.id}}" class=" " style="display: flex; flex-direction: column; max-width: 20vw">
 <img ng-if="data.images" class="cover" ng-style="{'object-fit': 'contain', 'border-radius': isRound ? '525pt' : '0'}"  src="{{data.images[0].url}}" style="margin-bottom: 3pt">
 <img ng-if="data.icons"  class="cover" ng-style="{'object-fit': 'contain','border-radius': isRound ? '25pt' : '0'}"  src="{{data.icons[0].url}}" style="margin-bottom: 3pt">
-<span style="color: white; font-weight: bold; word-break: break-all; line-break: auto;  font-size: 13pt">{{data.name.substr(0, 50)}}</span><br>
+<span style="color: white; font-weight: bold; word-break: break-all; line-break: auto;  font-size: 13pt">{{data.name ? data.name.substr(0, 50) : ''}}</span><br>
 <span ng-if="data.artists">
     <span ng-repeat="a in data.artists">{{a.name}}</span>
 </span>
-<p style="display: block; line-break: auto; word-break: break-all; opacity: 0.5">{{data.description.substr(0, 100)}}</p>
+<p style="display: block; line-break: auto; word-break: break-all; opacity: 0.5">{{data.description ? data.description.substr(0, 100) : ''}}</p>
 </a>

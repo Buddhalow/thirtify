@@ -182,10 +182,15 @@
 
 		window.addEventListener("message", function(event) {
 			console.log('got postmessage', event);
-			var hash = JSON.parse(event.data);
-			if (hash.type === 'access_token') {
-				Auth.setAccessToken(hash.access_token, hash.expires_in || 60);
-				checkUser(true);
+			try {
+				var
+				hash = JSON.parse(event.data);
+				if (hash.type === 'access_token') {
+					Auth.setAccessToken(hash.access_token, hash.expires_in || 60);
+					checkUser(true);
+				}
+			} catch (e) {
+
 			}
   		}, false);
 

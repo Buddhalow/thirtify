@@ -1,8 +1,10 @@
 {
-  "objects": [
-    {
-      "id": "buddhalow",
-      "name": "Buddhalow"
-    }
-  ]
+  "curators": {
+    "items": [
+      {
+        "id": "buddhalow",
+        "name": "Buddhalow"
+      }
+    ]
+  }
 }

@@ -35,7 +35,7 @@
 			        	if (swatches.hasOwnProperty(swatch) && swatches[swatch]) {
 				        	let hex = swatches[swatch].getHex()
 				            console.log(swatch, hex)
-				            document.documentElement.style.setProperty('--vibrant-color', hex + '88')
+				            // document.documentElement.style.setProperty('--vibrant-color', hex + '88')
 				         	break;   
 				        }
 				    }

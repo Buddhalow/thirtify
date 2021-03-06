@@ -46,7 +46,7 @@
         "snapshot_id": "MjYwOTEzNTcsMDAwMDAwMDAzMGUyNzVjMDQxMWQ0MDEzY2E1Zjc2ZDdhYmU5Mzc3NA=="
       }*/
     }
-    // document.documentElement.style.setProperty('--vibrant-color', '#003355');
+    // // document.documentElement.style.setProperty('--vibrant-color', '#003355');
 
 
     /**
