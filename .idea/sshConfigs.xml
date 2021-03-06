@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="OPEN_SSH" host="buddhalow.webfactional.com" id="989cd45e-d659-4118-9042-bb4452461a72" port="22" customName="thirtify" nameFormat="CUSTOM">
+        <option name="customName" value="thirtify" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
