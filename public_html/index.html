@@ -65,6 +65,7 @@
 		<script src="controllers/curator.js"></script>
 		<script src="controllers/creator.js"></script>
 		<script src="controllers/genre.js"></script>
+		<script src="directives/entry.js"></script>
 		<script src="controllers/library.js"></script>
 		<script src="controllers/chart.js"></script>
 		<script src="controllers/year.js"></script>
@@ -163,7 +164,7 @@
 						</div>
 					</div>
 					<div class="mainview" scroll>
-						<div ng-controller="SearchController"  class="search">
+						<div ng-controller="SearchController"  class="search hidden-xs hidden-md visible-lg">
 								<form novalidate ng-submit="loadsearch()" >
 									<input type="search" style="border: none; background: none;" ng-model="query" placeholder="Search..." />
 								</form>

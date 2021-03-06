@@ -212,13 +212,14 @@ h3, summary {
 li, ul {
 	list-style-type: none;
 }
+/*
 sp-entry {
 	background-color: rgba(255, 255, 255, .1);
 	color: white;
 	display: flex;
 	flex-direction: row;
 	justify-items: stretch;
-}
+}*/
 .topgroup .titlebox {
 	position: absolute;
 	left: 350px;
@@ -912,11 +913,16 @@ header {
 .entry > div {
 	padding: 20pt;
 }
+.form-control {
+	border-radius: 3pt;
+}
+.form-control.bg-white {
+	background: white;
+}
 .search {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-	background: rgba(255, 255, 255, .1);
 	color: var(--color);
 	border: none;
 	padding: 20pt;

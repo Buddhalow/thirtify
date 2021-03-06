@@ -1,3 +1,12 @@
+<div class="container">
+	<div ng-controller="SearchController"  class="search visible-xs hidden-md">
+		<form novalidate ng-submit="loadsearch()" >
+			<div class="form-control bg-white text-black">
+				<input type="search" style="border: none; background: none;" ng-model="query" placeholder="Search..." />
+			</div>
+		</form>
+	</div>
+</div>
 <div ng-if="!hasResults">
 
 	<div class="container">
@@ -12,10 +21,13 @@
 		</div>
 	</div>
 </div>
-<div ng-if="hasResults">
+<div ng-if="hasResults" class="visible-xs hidden-md">
+	<sp-entry ng-model="row" ng-repeat="row in playlists"></sp-entry>
+</div>
+<div ng-if="hasResults" class="hidden-xs visible-md">
 <generic-header ng-model="data"></generic-header>
 <div class="container" ng-show="type">
-	<div class="row" >
+	<div class="row">
 		<div class="row" ng-show="objects.length > 0" class="col-md-6">
 			<sp-flow class="playlists">
 				<sp-item ng-model="p" ng-repeat="p in objects">
