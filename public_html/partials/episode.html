@@ -1,29 +1,16 @@
 
+<generic-header ng-model="data.show" followable="true" wide="true" playable="true"></generic-header>
 <div class="">
 	<div style="display: flex; flex-direction: column">
-		<div style="flex: 0 0 25%">
-			<img ng-src="{{data.images[0].url}}" width="100%">
-		</div>
 		<div style="display: flex; flex-direction: column; padding: 20pt">
 			<h1>{{data.name}}</h1>
-			<small>Episode of <a ng-href="/show/{{data.show.id}}">{{data.show.name}}</a> by <a ng-href="/publisher/{{data.show.publisher}}">{{data.show.publisher}}</a></small>
 			<p>{{data.description}}</p>
 
-			<div class="entry" ng-dblclick="play(t.uri)"  ng-class="{ playing: (t.episode.uri == currenttrack) }" ng-context-menu="menuOptionsPlaylistTrack(t, $index)">
-
-				<div>
-					<img height="64" src="{{data.images[0].url}}">
-
-				</div>
-				<div class="name" ng-dblclick="play(data.uri)">
-					<a style="font-size: 12pt" href="/episode/{{data.id}}">{{data.name}}</a>
-					<span style="opacity: 0.8;">{{data.release_date | timeago}}</span>
-
-					<span style="opacity: 0.8;">{{data.duration_ms | displaytime}}</span>
-				</div>
-			</div>
-		<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show all tracks</a>
-		<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show only current track</a>
+			<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show all tracks</a>
+			<a style="float: right" class="button" ng-click="toggleShowAll()" ng-if="showAll">Show only current track</a>
+		</div>
+		<div style="flex: 0 0 25%">
+			<img ng-src="{{data.images[0].url}}" width="100%">
 		</div>
 	</div>
 </div>

@@ -24,9 +24,9 @@
     <div  style="left: 0pt; top: 0pt;  ">
         <div class="container">
 
-            <header ng-if="!isWide" style="margin-bottom: 12pt; width: 100%;">
-                <div ng-show="data.images && data.images.length > 0 && data.type != 'author'" style="margin-right: 12pt">
-                    <img src="{{data.images[0].url}}" width="128" ng-style="{'border-radius': isRound ? '100%' : '0'}" height="128" />
+            <header ng-if="!isWide" style="margin-bottom: 12pt; width: 100%; display: flex; flex-direction: row">
+                <div ng-show="data.images && data.images.length > 0 && data.type != 'author'" style="margin-right: 12pt; height: 100%; display: flex; justify-content: flex-end; align-items: flex-end">
+                    <img src="{{data.images[0].url}}" width="128" ng-style="{'border-radius': isRound ? '100%' : '0'}"  />
                 </div>
                 <div class="header-main">
                     <h4 ng-show="data.collaborative" style="text-transform: uppercase;">{{'collaborative-playlist' | locale}}</h4>

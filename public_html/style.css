@@ -9,6 +9,10 @@
 }
 
 
+::-webkit-scrollbar {
+	width: 0;  /* Remove scrollbar space */
+	background: transparent;  /* Optional: just make scrollbar invisible */
+}
 
 body {
 	background: var(--background-color);
@@ -403,8 +407,14 @@ generic-header {
 
 }
 .cover {
-	box-shadow: 0pt 0pt 12pt rgba(0, 0, 0, .8);
+	/*box-shadow: 0pt 0pt 12pt rgba(0, 0, 0, .8);*/
 }
+
+.cover {
+	width: 20vw;
+	height: 20vw;
+}
+
 
 .mainview {
 	background: -moz-linear-gradient(top, var(--vibrant-color) 0%, transparent 100%); /* FF3.6-15 */
@@ -894,7 +904,7 @@ header {
 	color: var(--color);
 }
 .entry {
-	background: rgba(255, 255, 255, .05);
+	border-top: 1pt solid rgba(255, 255, 255, .1);
 	color: white;
 	flex-direction: row;
 	display: flex;

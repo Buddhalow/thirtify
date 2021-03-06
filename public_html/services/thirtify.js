@@ -1,9 +1,5 @@
 (function() {
-	Parse.initialize("jg3ppjH3gNLZL1yqHNxyccDVADr8djiVkhC3gQFk", "19c6eH5SBHmNpElJmjLJH1BePAiwZmRa09zhVKnQ"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
-	Parse.serverURL = "https://parseapi.back4app.com/";
 
-	var Channel = Parse.Object.extend('Channel')
-	var Change = Parse.Object.extend('Change')
 	var module = angular.module('PlayerApp');
 	
 	/**
@@ -20,7 +16,7 @@
 		return {
 			getCuratorByIdentifier: function (identifier) {
 				return new Promise((resolve, reject) => {
-						fetch('https://api.thirtify.app/curator/' + identifier).then(r => r.json()).then(result => {
+						fetch('/api/curators/' + identifier + "/view.json").then(r => r.json()).then(result => {
 							console.log("RESULT", result);
 						resolve(result);
 					}).catch(err => reject(err));
@@ -28,7 +24,7 @@
 			},
 			getArticlesByCurator: function (identifier) {
 				return new Promise((resolve, reject) => {
-					fetch('https://api.thirtify.app/curator/' + identifier + '/articles').then(r => r.json()).then(result => {
+					fetch('/api/curators/' + identifier + '/articles.json').then(r => r.json()).then(result => {
 						console.log("RESULT", result);
 						resolve(result);
 					}).catch(err => reject(err));
@@ -36,7 +32,7 @@
 			},
 			getCurators: function (identifier) {
 				return new Promise((resolve, reject) => {
-					fetch('https://api.thirtify.app/curator').then(r => r.json()).then(result => {
+					fetch('/api/curators/list.json').then(r => r.json()).then(result => {
 						console.log("RESULT", result);
 						resolve(result);
 					}).catch(err => reject(err));
@@ -44,61 +40,16 @@
 			},
 			getChannelByIdentifier: function (identifier) {
 				return new Promise(function (resolve, reject) {
-					new Parse.Query('Channel').equalTo('identifier', identifier).first().then(function (channel) {
-						resolve({
-							id: channel.get('slug'),
-							name: channel.get('name'),
-							type: channel.get('type'),
-							description: channel.get('description'),
-							images: channel.get('images'),
-							user: {
-								id: '',
-								name: '',
-								type: 'user'
-							},
-							description: channel.get('description')
+					 	resolve({
+
 						})
-					}, function (error) { reject(error)})
 				})
 			},
 			getObjectsInChannel: function (identifier, time) {
 				if (!time) time = new Date()
 				var now = new Date()
 				return new Promise(function (resolve, reject) {
-					var query = new Parse.Query('Change')
-					query.equalTo('channelId', identifier)
-					query.find().then(
-						function (changes) {
-							var objects = []
-							for (var i = 0; i < changes.length; i++) {
-								var change = changes[i]
-								var time = change.get('time')
-								if (time.getTime() < now.getTime()) {
-									switch (change.get('type')) {
-										case 'insert': {
-											objects.splice(change.get('position'), 0, {
-												position: change.get('position'),
-												time: change.get('time'),
-												object: change.get('object')
-											})
-											break
-										}
-										case 'remove': {
-											objects.splice(change.get('position'), 1)
-											break
-										}
-									}
-								}
-							}
-							resolve({
-								objects: objects
-							})
-						},
-						function (err) {
-							debugger
-							reject(err)
-						}
-					)					
+
 				})
 			},
 			createChannel: function (name, description) {
