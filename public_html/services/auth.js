@@ -8,7 +8,7 @@
 		var REDIRECT_URI = '';
 
 			CLIENT_ID =	'66be25803e3948729b792a934c5bab26';
-			REDIRECT_URI = 'https://thirtify.app/callback.html';
+			REDIRECT_URI = 'https://thirtify.buddhalow.com/callback.html';
 
 
 		function getLoginURL(scopes) {
