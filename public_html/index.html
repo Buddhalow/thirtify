@@ -93,27 +93,28 @@
 		<script src="apps/reddit/js/main.js"></script>
 	</head>
 	<body ng-controller="AppController">
+	<div class="topgroup hidden-xs visible-md" style="position: fixed !important;">
+		<div class="controller ">
+			<div class="buttons">
+				<button style="padding: 8pt" onclick="history.back()">&lt;</button>
+				<button style="padding: 8pt" href="#" onclick="history.forward()">&gt;</button>
+			</div>
+			<div class="searchbox">
+				<form novalidate ng-submit="loadsearch()">
+					<input type="text" ng-model="query" placeholder="Search..." />
+				</form>
+			</div>
+			<div class="titlebox" style="flex: 1">
+				<a href="/home" style="display: none">THIRTIFY (Pre-alpha fork by Buddhalow)</a>
+			</div>
+			<div class="userbox">
+				<b><a href="#/users/{{profileUsername}}">{{profileUsername}}</a></b>
+			</div>
+		</div>
+	</div>
 		<div class="fullview playerview" ng-show="showplayer">
 			<div ng-controller="PlayerController" class="main">
-				<div class="topgroup hidden-xs visible-md">
-					<div class="controller ">
-						<div class="buttons">
-							<button style="padding: 8pt" onclick="history.back()">&lt;</button>
-							<button style="padding: 8pt" href="#" onclick="history.forward()">&gt;</button>
-						</div>
-						<div class="searchbox">
-							<form novalidate ng-submit="loadsearch()">
-								<input type="text" ng-model="query" placeholder="Search..." />
-							</form>
-						</div>
-						<div class="titlebox" style="flex: 1">
-							<a href="/home" style="display: none">THIRTIFY (Pre-alpha fork by Buddhalow)</a>
-						</div>
-						<div class="userbox">
-							<b><a href="#/users/{{profileUsername}}">{{profileUsername}}</a></b>
-						</div>
-					</div>
-				</div>
+
 				<div class="midgroup">
 					<div class="menuview">
 						<div class="list scrollable" style="flex: 1; height: 100%">

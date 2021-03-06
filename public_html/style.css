@@ -418,9 +418,9 @@ generic-header {
 
 
 .mainview {
-	background: -moz-linear-gradient(top, var(--vibrant-color) 0%, transparent 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, var(--vibrant-color) 0%, transparent 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, var(--vibrant-color) 0%, transparent 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(top, var(--vibrant-color) 0%, transparent 50%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, var(--vibrant-color) 0%, transparent 50%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, var(--vibrant-color) 0%, transparent 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
 	transition: background 0.5s;
 }
@@ -803,6 +803,7 @@ responsive-cover:active, .button:active {
 	width: initial;
 }
 .list {
+	background-color: #050505;
 	padding: 20pt !important;
 }
 ::-webkit-scrollbar {
