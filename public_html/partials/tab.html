@@ -1,4 +1,4 @@
-<div class="tab" ng-click="selectTab(model)">
-    <p>{{name}}</p>
+<button class="{{'tab ' + ((section === window.location.hash.substr(1) || (section === 'overview' && window.location.hash.substr(1) == '')) ? 'active' : '' )}}" ng-click="window.location.href = window.location.href.split('#')[0] + '#' + section">
+    <p>{{section}}</p>
     <div class="tab-underline"></div>
-</div>
+</button>
