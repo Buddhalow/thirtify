@@ -93,7 +93,7 @@
 		<script src="apps/reddit/js/main.js"></script>
 	</head>
 	<body ng-controller="AppController">
-	<div class="topgroup hidden-xs visible-md" style="position: fixed !important;">
+	<div class="topgroup hidden-xs visible-md visible-lg" style="position: fixed !important;">
 		<div class="controller ">
 			<div class="buttons">
 				<button style="padding: 8pt" onclick="history.back()">&lt;</button>
@@ -164,17 +164,6 @@
 						</div>
 					</div>
 					<div class="mainview" scroll>
-						<div ng-controller="SearchController"  class="search hidden-xs hidden-md visible-lg" style="display: none; ">
-								<form novalidate ng-submit="loadsearch()" style="z-index: 119; display: flex; flex-direction: row; align-items" >
-									<div class="buttons">
-										<button style="padding: 8pt" onclick="history.back()">&lt;</button>
-										<button style="padding: 8pt" href="#" onclick="history.forward()">&gt;</button>
-									</div>
-									<div class="form-control bg-white">
-										<input type="search" style="border: none; background: none;" ng-model="query" placeholder="Search..." />
-									</div>
-								</form>
-						</div>
 						<div ng-view style="flex: 1"></div>
 					</div>
 					<div class="rightgroup" style="display: none"></div>

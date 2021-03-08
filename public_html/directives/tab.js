@@ -7,8 +7,9 @@
 				section: '=section',
 				label: '@'
 			},
+			templateUrl: '/partials/tab.html',
 			compile: function (element, attributes) {
-			  	
+
 				//linkFunction is linked with each element with scope to get the element specific data.
 				var linkFunction = function($scope, element, attributes) {
 					var hash = window.location.hash.substr(1)
@@ -26,7 +27,7 @@
 			      	})
 				}
 				return linkFunction;
-			   
+
 			}
 		};
 	});

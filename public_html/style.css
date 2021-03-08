@@ -674,11 +674,19 @@ tabbar-tab {
 	text-transform: uppercase;
 	margin-right: 12pt;
 	font-size: 12pt;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	cursor: hand;
 }
 tabbar-tab.active {
 	color: white;
-	border-bottom: 2pt solid var(--primary-color);
+
+}
+tabbar-tab.active  .tab-underline {
+	background: var(--primary-color);
+	width: 50%;
+	height: 3pt;
 }
 
 ul.albums li, ul.playlists li, ul.genres li {
